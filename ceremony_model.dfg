@@ -1,0 +1,1120 @@
+begin_problem(formal_model).
+
+list_of_descriptions.
+name({*SPASS for DA Model*}).
+author({*Taciane*}).
+status(satisfiable).
+description({* Logic Model for Security Ceremonies *}).
+end_of_list.
+
+list_of_symbols.
+functions[
+
+%Ceremony-specific constants
+%VARIABLES TODO
+
+(sent,3), %(sender, receiver, message)
+(pair,2),
+(encr,2), %(message, key)
+(hash,1)
+
+].
+
+predicates[
+(Agent,1),
+(L4_Sender,3),
+(L3_Sender,3), %(sender, receiver, message)
+(L2_Sender,3),
+(L1_Sender,3),
+(Attacker,1),
+(L1_WasBlocked,3), %(receiver, message, attacker)
+(L2_WasBlocked,3),
+(L3_WasBlocked,3),
+(Knows,2), %(agent, knowledge)
+(KnowsPair,2),
+(KnowsEncr,2),
+(Honest,1), %attackers are not honest
+(Key,1),
+(Function,1),
+
+%Attacker types
+(DY,1), %Dolev-Yao  - identifier (all capabilities included by default)
+(DA,1), %Distributed Attacker - identifier
+(MA,1), %Multi-Attacker - identifier
+
+%Security concertina layers
+(L4_N,1),
+
+(L3_N,1),
+(L3_E,2), %eavesdrop - feasible
+(L3_B,2), %block - feasible
+(L3_S,2), %spoof - only if device left unblocked and unattended
+(L3_I,2), %initiate - same condition as spoof
+(L3_C,2), %crypto - same condition as spoof
+(L3_O,2), %re-order same condition as spoof
+(L3_F,2), %fabricate - same condition as spoof
+
+(L2_N,1),
+(L2_E,2),
+(L2_B,2),
+(L2_S,2),
+(L2_I,2),
+(L2_C,2),
+(L2_O,2),
+(L2_F,2),
+
+%DY capabilities
+(L1_E,2),
+(L1_B,2),
+(L1_S,2),
+(L1_I,2),
+(L1_C,2),
+(L1_O,2),
+(L1_F,2)
+
+].
+
+end_of_list.
+
+
+list_of_formulae(axioms).
+
+%---- Atomic Break Down (A) ------------------------------------------
+
+formula( forall([xa, xm1, xm2],
+	implies(
+		and(
+			Agent(xa),
+			KnowsPair(xa,pair(xm1,xm2))
+		),
+		and(
+			Knows(xa, xm1),
+			Knows(xa, xm2)
+		)
+	)),
+Atomic_break_down_pair).
+
+
+%---- Concatenate ----------------------------------------------------
+
+formula( forall([xa, xm1, xm2],
+	implies(
+		and(
+			Agent(xa),
+			Knows(xa, xm1),
+			Knows(xa, xm2)
+		),
+		KnowsPair(xa,pair(xm1,xm2))
+	)),
+Concatenate_pair).
+
+
+%---- Communication --------------------------------------------------
+
+formula( forall([xa, xm, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Knows(xa,xm),
+			Key(xkey),
+			Knows(xa,xkey)
+		),
+		KnowsEncr(xa, encr(xm,xkey))
+	)),
+Encryption).
+
+
+formula( forall([xa, xm, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Key(xkey),
+			Knows(xa,xkey),
+			KnowsEncr(xa, encr(xm,xkey))
+		),
+		Knows(xa,xm)
+	)),
+Decryption).
+
+
+formula( forall([xa, xm1,xm2, xkey],
+	implies(
+		and(
+			Agent(xa),
+			KnowsPair(xa,pair(xm1,xm2)),
+			Key(xkey),
+			Knows(xa,xkey)
+		),
+		KnowsEncr(xa, encr(pair(xm1,xm2),xkey))
+	)),
+Encryption_Pair).
+
+
+formula( forall([xa, xm1, xm2, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Key(xkey),
+			Knows(xa,xkey),
+			KnowsEncr(xa, encr(pair(xm1,xm2),xkey))
+		),
+		KnowsPair(xa,pair(xm1,xm2))
+	)),
+Decryption_Pair).
+
+
+% ---------------------------------------------------------------------
+
+%Eavesdrop
+formula( forall([xa, xb, xatt, xm],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa, xm),
+			L3_E(sent(xa,xb,xm),xatt)
+		),
+		and(
+			Knows(xb, xm),
+			Knows(xatt, xm),
+			L3_Sender(xa,xb,xm)
+		)
+	)),
+Eavesdrop_L3).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xa, pair(xm1,xm2)),
+			L3_E(sent(xa,xb,pair(xm1,xm2)),xatt)
+		),
+		and(
+			KnowsPair(xb, pair(xm1,xm2)),
+			KnowsPair(xatt, pair(xm1,xm2)),
+			L3_Sender(xa,xb,pair(xm1,xm2))
+		)
+	)),
+Eavesdrop_L3_Pair).
+
+
+formula( forall([xa, xb, xatt, xm],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa, xm),
+			L2_E(sent(xa,xb,xm),xatt)
+		),
+		and(
+			Knows(xb, xm),
+			Knows(xatt, xm),
+			L2_Sender(xa,xb,xm)
+		)
+	)),
+Eavesdrop_L2).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xa, pair(xm1,xm2)),
+			L2_E(sent(xa,xb,pair(xm1,xm2)),xatt)
+		),
+		and(
+			KnowsPair(xb, pair(xm1,xm2)),
+			KnowsPair(xatt, pair(xm1,xm2)),
+			L2_Sender(xa,xb,pair(xm1,xm2))
+		)
+	)),
+Eavesdrop_L2_Pair).
+
+
+formula( forall([xa, xb, xatt, xm],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa, xm),
+			L1_E(sent(xa,xb,xm),xatt)
+		),
+		and(
+			Knows(xb, xm),
+			Knows(xatt, xm),
+			L1_Sender(xa,xb,xm)
+		)
+	)),
+Eavesdrop_L1).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xa, pair(xm1,xm2)),
+			L1_E(sent(xa,xb,pair(xm1,xm2)),xatt)
+		),
+		and(
+			KnowsPair(xb, pair(xm1,xm2)),
+			KnowsPair(xatt, pair(xm1,xm2)),
+			L1_Sender(xa,xb,pair(xm1,xm2))
+		)
+	)),
+Eavesdrop_L1_Pair).
+
+
+formula( forall([xa, xb, xatt, xm, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xm),
+			Knows(xa,xkey),
+			Key(xkey),
+			L1_E(sent(xa,xb,encr(xm,xkey)),xatt)
+		),
+		and(
+			KnowsEncr(xb,encr(xm,xkey)),
+			KnowsEncr(xatt,encr(xm,xkey)),
+			L1_Sender(xa,xb,encr(xm,xkey))
+		)
+	)),
+Eavesdrop_L1_Encr).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xa,pair(xm1,xm2)),
+			Knows(xa,xkey),
+			Key(xkey),
+			L1_E(sent(xa,xb,encr(pair(xm1,xm2),xkey)),xatt)
+		),
+		and(
+			KnowsEncr(xb,encr(pair(xm1,xm2),xkey)),
+			KnowsEncr(xatt,encr(pair(xm1,xm2),xkey)),
+			L1_Sender(xa,xb,encr(pair(xm1,xm2),xkey))
+		)
+	)),
+Eavesdrop_L1_Encr_Pair).
+
+% --------------------------------------------------------------------------
+
+%Block
+
+formula( forall([xa, xb, xatt, xm],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa, xm),
+			L3_B(sent(xa,xb,xm),xatt)
+		),
+		and(
+			L3_WasBlocked(xb, xm, xatt),
+			Knows(xatt,xm),
+			L3_Sender(xa,xb,xm)
+		)
+	)),
+Block_L3).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xa, pair(xm1,xm2)),
+			L3_B(sent(xa,xb,pair(xm1,xm2)),xatt)
+		),
+		and(
+			L3_WasBlocked(xb, pair(xm1,xm2), xatt),
+			KnowsPair(xatt,pair(xm1,xm2)),
+			L3_Sender(xa,xb,pair(xm1,xm2))
+		)
+	)),
+Block_L3_Pair).
+
+
+formula( forall([xa, xb, xatt, xm],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa, xm),
+			L2_B(sent(xa,xb,xm),xatt)
+		),
+		and(
+			L2_WasBlocked(xb, xm, xatt),
+			Knows(xatt,xm),
+			L2_Sender(xa,xb,xm)
+		)
+	)),
+Block_L2).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xa, pair(xm1,xm2)),
+			L2_B(sent(xa,xb,pair(xm1,xm2)),xatt)
+		),
+		and(
+			L2_WasBlocked(xb, pair(xm1,xm2), xatt),
+			KnowsPair(xatt,pair(xm1,xm2)),
+			L2_Sender(xa,xb,pair(xm1,xm2))
+		)
+	)),
+Block_L2_Pair).
+
+
+formula( forall([xa, xb, xatt, xm],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa, xm),
+			L1_B(sent(xa,xb,xm),xatt)
+		),
+		and(
+			L1_WasBlocked(xb, xm, xatt),
+			Knows(xatt,xm),
+			L1_Sender(xa,xb,xm)
+		)
+	)),
+Block_L1).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xa, pair(xm1,xm2)),
+			L1_B(sent(xa,xb,pair(xm1,xm2)),xatt)
+		),
+		and(
+			L1_WasBlocked(xb, pair(xm1,xm2), xatt),
+			KnowsPair(xatt,pair(xm1,xm2)),
+			L1_Sender(xa,xb,pair(xm1,xm2))
+		)
+	)),
+Block_L1_Pair).
+
+
+formula( forall([xa, xb, xatt, xm, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xm),
+			Knows(xa,xkey),
+			Key(xkey),
+			L1_B(sent(xa,xb,encr(xm,xkey)),xatt)
+		),
+		and(
+			L1_WasBlocked(xb, encr(xm,xkey), xatt),
+			KnowsEncr(xatt,encr(xm,xkey)),
+			L1_Sender(xa,xb,encr(xm,xkey))
+		)
+	)),
+Block_L1_Encr).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xa,pair(xm1,xm2)),
+			Knows(xa,xkey),
+			Key(xkey),
+			L1_B(sent(xa,xb,encr(pair(xm1,xm2),xkey)),xatt)
+		),
+		and(
+			L1_WasBlocked(xb, encr(pair(xm1,xm2),xkey), xatt),
+			KnowsEncr(xatt,encr(pair(xm1,xm2),xkey)),
+			L1_Sender(xa,xb,encr(pair(xm1,xm2),xkey))
+		)
+	)),
+Block_L1_Encr_Pair).
+
+% -------------------------------------------------------------------------
+
+%Spoof
+formula( forall([xa, xb, xm, xatt],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xatt,xm)
+		),
+		and(
+			L3_S(sent(xa,xb,xm), xatt),
+			Knows(xb,xm),
+			L3_Sender(xatt,xb,xm)
+		)
+	)),
+Spoof_L3).
+
+
+formula( forall([xa, xb, xm1, xm2, xatt],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xatt,pair(xm1,xm2))
+		),
+		and(
+			L3_S(sent(xa,xb,pair(xm1,xm2)), xatt),
+			KnowsPair(xb,pair(xm1,xm2)),
+			L3_Sender(xatt,xb,pair(xm1,xm2))
+		)
+	)),
+Spoof_L3_Pair).
+
+
+formula( forall([xa, xb, xm, xatt],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xatt,xm)
+		),
+		and(
+			L2_S(sent(xa,xb,xm), xatt),
+			Knows(xb,xm),
+			L2_Sender(xatt,xb,xm)
+		)
+	)),
+Spoof_L2).
+
+
+formula( forall([xa, xb, xm1, xm2, xatt],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xatt,pair(xm1,xm2))
+		),
+		and(
+			L2_S(sent(xa,xb,pair(xm1,xm2)), xatt),
+			KnowsPair(xb,pair(xm1,xm2)),
+			L2_Sender(xatt,xb,pair(xm1,xm2))
+		)
+	)),
+Spoof_L2_pair).
+
+
+formula( forall([xa, xb, xm, xatt],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xatt,xm)
+		),
+		and(
+			L1_S(sent(xa,xb,xm), xatt),
+			Knows(xb,xm),
+			L1_Sender(xatt,xb,xm)
+		)
+	)),
+Spoof_L1).
+
+
+formula( forall([xa, xb, xm1, xm2, xatt],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xatt,pair(xm1,xm2))
+		),
+		and(
+			L1_S(sent(xa,xb,pair(xm1,xm2)), xatt),
+			KnowsPair(xb,pair(xm1,xm2)),
+			L1_Sender(xatt,xb,pair(xm1,xm2))
+		)
+	)),
+Spoof_L1_Pair).
+
+
+formula( forall([xa, xb, xm, xatt, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xm),
+			Knows(xa,xkey),
+			Key(xkey),
+			L1_E(sent(xa,xb,encr(xm,xkey)),xatt)
+		),
+		and(
+			L1_S(sent(xa,xb,encr(xm,xkey)), xatt),
+			KnowsEncr(xb,encr(xm,xkey)),
+			L1_Sender(xatt,xb,encr(xm,xkey))
+		)
+	)),
+Spoof_L1_Encr).
+
+
+formula( forall([xa, xb, xm1, xm2, xatt, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			KnowsPair(xa,pair(xm1,xm2)),
+			Knows(xa,xkey),
+			Key(xkey),
+			L1_E(sent(xa,xb,encr(pair(xm1,xm2),xkey)),xatt)
+		),
+		and(
+			L1_S(sent(xa,xb,encr(pair(xm1,xm2),xkey)), xatt),
+			KnowsEncr(xb,encr(pair(xm1,xm2),xkey)),
+			L1_Sender(xatt,xb,encr(pair(xm1,xm2),xkey))
+		)
+	)),
+Spoof_L1_Encr_Pair).
+
+
+% ----------------------------------------------------------------------
+
+%Initiate
+formula( forall ([xatt, xb, xm],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xb),
+			Honest(xb),
+			Knows(xatt, xm)
+		),
+		and(
+			L3_I(sent(xatt, xb, xm),xatt),
+			Knows(xb,xm),
+			L3_Sender(xatt,xb,xm)
+		)
+	)),
+Initiate_L3).
+
+
+formula( forall ([xatt, xb, xm1, xm2],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xb),
+			Honest(xb),
+			KnowsPair(xatt, pair(xm1,xm2))
+		),
+		and(
+			L3_I(sent(xatt, xb, pair(xm1,xm2)),xatt),
+			KnowsPair(xb,pair(xm1,xm2)),
+			L3_Sender(xatt,xb,pair(xm1,xm2))
+		)
+	)),
+Initiate_L3_Pair).
+
+
+formula( forall ([xatt, xb, xm],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xb),
+			Honest(xb),
+			Knows(xatt, xm)
+		),
+		and(
+			L2_I(sent(xatt, xb, xm),xatt),
+			Knows(xb,xm),
+			L2_Sender(xatt,xb,xm)
+		)
+	)),
+Initiate_L2).
+
+
+formula( forall ([xatt, xb, xm1, xm2],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xb),
+			Honest(xb),
+			KnowsPair(xatt, pair(xm1,xm2))
+		),
+		and(
+			L2_I(sent(xatt, xb, pair(xm1,xm2)),xatt),
+			KnowsPair(xb,pair(xm1,xm2)),
+			L2_Sender(xatt,xb,pair(xm1,xm2))
+		)
+	)),
+Initiate_L2_Pair).
+
+
+formula( forall ([xatt, xb, xm],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xb),
+			Honest(xb),
+			Knows(xatt, xm)
+		),
+		and(
+			L1_I(sent(xatt, xb, xm),xatt),
+			Knows(xb,xm),
+			L1_Sender(xatt,xb,xm)
+		)
+	)),
+Initiate_L1).
+
+
+formula( forall ([xatt, xb, xm1, xm2],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xb),
+			Honest(xb),
+			KnowsPair(xatt,pair(xm1,xm2))
+		),
+		and(
+			L1_I(sent(xatt, xb, pair(xm1,xm2)),xatt),
+			KnowsPair(xb,pair(xm1,xm2)),
+			L1_Sender(xatt,xb,pair(xm1,xm2))
+		)
+	)),
+Initiate_L1_Pair).
+
+
+formula( forall ([xatt, xb, xm, xkey],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xb),
+			Honest(xb),
+			Knows(xatt,xm),
+			Knows(xatt,xkey),
+			Key(xkey)
+		),
+		and(
+			L1_I(sent(xatt, xb, encr(xm,xkey)),xatt),
+			KnowsEncr(xb,encr(xm,xkey)),
+			L1_Sender(xatt,xb,encr(xm,xkey))
+		)
+	)),
+Initiate_L1_Encr).
+
+
+formula( forall ([xatt, xb, xm1, xm2, xkey],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xb),
+			Honest(xb),
+			KnowsPair(xatt,pair(xm1,xm2)),
+			Knows(xatt,xkey),
+			Key(xkey)
+		),
+		and(
+			L1_I(sent(xatt, xb, encr(pair(xm1,xm2),xkey)),xatt),
+			KnowsEncr(xb,encr(pair(xm1,xm2),xkey)),
+			L1_Sender(xatt,xb,encr(pair(xm1,xm2),xkey))
+		)
+	)),
+Initiate_L1_Encr_Pair).
+
+% ------------------------------------------------------------------------
+
+%Crypto - nothing more than Eavesdrop and Decrypt
+
+formula( forall([xa, xb, xatt, xm, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xm),
+			Key(xkey),
+			Knows(xa,xkey),
+			Knows(xatt,xkey),
+			L3_C(sent(xa,xb,encr(xm,xkey)),xatt)
+		),
+		and(
+			Knows(xatt, xm),
+			KnowsEncr(xb,encr(xm,xkey)),
+			L3_Sender(xa,xb,xm)
+		)
+	)),
+Crypto_L3).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xkey),
+			KnowsPair(xa,pair(xm1,xm2)),
+			Knows(xatt,xkey),
+			Key(xkey),
+			L3_C(sent(xa,xb,encr(pair(xm1,xm2),xkey)),xatt)
+		),
+		and(
+			KnowsPair(xatt, pair(xm1,xm2)),
+			KnowsEncr(xb,encr(pair(xm1,xm2),xkey)),
+			L3_Sender(xa,xb,pair(xm1,xm2))
+		)
+	)),
+Crypto_L3_Pair).
+
+
+formula( forall([xa, xb, xatt, xm, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xm),
+			Knows(xa,xkey),
+			Knows(xatt,xkey),
+			Key(xkey),
+			L2_C(sent(xa,xb,encr(xm,xkey)),xatt)
+		),
+		and(
+			Knows(xatt, xm),
+			KnowsEncr(xb,encr(xm,xkey)),
+			L2_Sender(xa,xb,xm)
+		)
+	)),
+Crypto_L2).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xkey),
+			KnowsPair(xa,pair(xm1,xm2)),
+			Knows(xatt,xkey),
+			Key(xkey),
+			L2_C(sent(xa,xb,encr(pair(xm1,xm2),xkey)),xatt)
+		),
+		and(
+			KnowsPair(xatt, pair(xm1,xm2)),
+			KnowsEncr(xb,encr(pair(xm1,xm2),xkey)),
+			L2_Sender(xa,xb,pair(xm1,xm2))
+		)
+	)),
+Crypto_L2_Pair).
+
+
+formula( forall([xa, xb, xatt, xm, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xkey),
+			Knows(xa,xm),
+			Knows(xatt,xkey),
+			Key(xkey),
+			L1_C(sent(xa,xb,encr(xm,xkey)),xatt)
+		),
+		and(
+			Knows(xatt, xm),
+			KnowsEncr(xb,encr(xm,xkey)),
+			L1_Sender(xa,xb,xm)
+		)
+	)),
+Crypto_L1).
+
+
+formula( forall([xa, xb, xatt, xm1, xm2, xkey],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xkey),
+			KnowsPair(xa,pair(xm1,xm2)),
+			Knows(xatt,xkey),
+			Key(xkey),
+			L1_C(sent(xa,xb,encr(pair(xm1,xm2),xkey)),xatt)
+		),
+		and(
+			KnowsPair(xatt, pair(xm1,xm2)),
+			KnowsEncr(xb,encr(pair(xm1,xm2),xkey)),
+			L1_Sender(xa,xb,pair(xm1,xm2))
+		)
+	)),
+Crypto_L1_Pair).
+
+
+% ----------------------------------------------------------------------------------------
+
+%ReOrder
+formula( forall ([xatt, xa, xb, xm1, xm2],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Knows(xa, xm1),
+			Knows(xa, xm2),
+			L3_O(sent(xa, xb, xm1), xatt),
+			implies(
+				L3_O(sent(xa, xb, xm1), xatt),
+				L3_O(sent(xa, xb, xm2), xatt))
+		),
+		and(
+			Knows(xatt,xm1),
+			Knows(xatt,xm2),
+			Knows(xb,xm2),
+			implies(
+				Knows(xb, xm2),
+				Knows(xb, xm1)),
+			L3_Sender(xa,xb,xm1),
+			L3_Sender(xa,xb,xm2)
+		)
+	)),
+ReOrder_L3).
+
+
+formula( forall ([xatt, xa, xb, xm1, xm2],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Knows(xa, xm1),
+			Knows(xa, xm2),
+			L2_O(sent(xa, xb, xm1), xatt),
+			implies(
+				L2_O(sent(xa, xb, xm1), xatt),
+				L2_O(sent(xa, xb, xm2), xatt))
+		),
+		and(
+			Knows(xatt,xm1),
+			Knows(xatt,xm2),
+			Knows(xb,xm2),
+			implies(
+				Knows(xb, xm2),
+				Knows(xb, xm1)),
+			L2_Sender(xa,xb,xm1),
+			L2_Sender(xa,xb,xm2)
+		)
+	)),
+ReOrder_L2).
+
+
+formula( forall ([xatt, xa, xb, xm1, xm2],
+	implies(
+		and(
+			Attacker(xatt),
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Knows(xa, xm1),
+			Knows(xa, xm2),
+			L1_O(sent(xa, xb, xm1), xatt),
+			implies(
+				L1_O(sent(xa, xb, xm1), xatt),
+				L1_O(sent(xa, xb, xm2), xatt))
+		),
+		and(
+			Knows(xatt,xm1),
+			Knows(xatt,xm2),
+			Knows(xb,xm2),
+			implies(
+				Knows(xb, xm2),
+				Knows(xb, xm1)),
+			L1_Sender(xa,xb,xm1),
+			L1_Sender(xa,xb,xm2)
+		)
+	)),
+ReOrder_L1).
+
+
+% ----------------------------------------------------------------------------------------
+
+%Fabricate
+formula( forall([xa, xb, xatt, xm],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xm),
+			Function(hash(xm)),
+			L3_F(sent(xa,xb,xm),xatt)
+		),
+		and(
+			L3_Sender(xa,xb,xm),
+			Knows(xatt,xm),
+			Knows(xatt, hash(xm))
+		)
+	)),
+Fabricate_L3).
+
+
+formula( forall([xa, xb, xatt, xm],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Knows(xa,xm),
+			Function(hash(xm)),
+			L2_F(sent(xa,xb,xm),xatt)
+		),
+		and(
+			Knows(xatt, hash(xm)),
+			Knows(xatt,xm),
+			L2_Sender(xa,xb,xm)
+		)
+	)),
+Fabricate_L2).
+
+
+formula( forall([xa, xb, xatt, xm],
+	implies(
+		and(
+			Agent(xa),
+			Agent(xb),
+			Honest(xa),
+			Honest(xb),
+			Attacker(xatt),
+			Function(hash(xm)),
+			L1_F(sent(xa,xb,xm),xatt)
+		),
+		and(
+			Knows(xatt, hash(xm)),
+			Knows(xatt,xm),
+			L1_Sender(xa,xb,xm)
+		)
+	)),
+Fabricate_L1).
+
+% ------------------------------------------------------------------------------
+
+formula(forall([xatt],
+	implies(
+		Attacker(xatt),
+		Agent(xatt)
+	)),
+Attackers_are_Agents).
+
+
+%DECLARATIONS AND STEPS TODO
+
+
+end_of_list.
+
+
+list_of_formulae(conjectures).
+
+%CONJECTURES TODO
+
+end_of_list.
+
+end_problem.

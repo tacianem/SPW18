@@ -1,0 +1,694 @@
+
+--------------------------SPASS-START-----------------------------
+Input Problem:
+1[0:Inp] ||  -> Agent(a)*.
+2[0:Inp] ||  -> Honest(a)*.
+3[0:Inp] ||  -> Agent(b)*.
+4[0:Inp] ||  -> Honest(b)*.
+5[0:Inp] ||  -> Agent(ua)*.
+6[0:Inp] ||  -> Honest(ua)*.
+7[0:Inp] ||  -> Agent(ub)*.
+8[0:Inp] ||  -> Honest(ub)*.
+9[0:Inp] ||  -> Attacker(dy)*.
+10[0:Inp] ||  -> DY(dy)*.
+11[0:Inp] ||  -> Knows(b,cbf1pkbpkanb0)*.
+12[0:Inp] ||  -> Knows(a,na)*.
+13[0:Inp] ||  -> Knows(b,nb)*.
+14[0:Inp] ||  -> Knows(a,vagpkbpkananb)*.
+15[0:Inp] ||  -> Knows(b,vbgpkbpkananb)*.
+16[0:Inp] ||  -> Knows(ua,va)*.
+17[0:Inp] ||  -> Knows(ub,vb)*.
+18[0:Inp] || Knows(dy,cbf1pkbpkanb0)* -> .
+19[0:Inp] || Knows(dy,na)* -> .
+20[0:Inp] || Knows(dy,nb)* -> .
+21[0:Inp] || Attacker(U) -> Agent(U)*.
+22[0:Inp] ||  -> L2_N(sent(b,a,cbf1pkbpkanb0))*.
+23[0:Inp] || SkP0(U,V,W,X,Y)* -> Knows(Y,V).
+24[0:Inp] || SkP0(U,V,W,X,Y)* -> Knows(Y,U).
+25[0:Inp] || SkP0(U,V,W,X,Y)* -> Knows(W,U).
+26[0:Inp] || SkP1(U,V,W,X,Y)* -> Knows(Y,V).
+27[0:Inp] || SkP1(U,V,W,X,Y)* -> Knows(Y,U).
+28[0:Inp] || SkP1(U,V,W,X,Y)* -> Knows(W,U).
+29[0:Inp] || SkP2(U,V,W,X,Y)* -> Knows(Y,V).
+30[0:Inp] || SkP2(U,V,W,X,Y)* -> Knows(Y,U).
+31[0:Inp] || SkP2(U,V,W,X,Y)* -> Knows(W,U).
+32[0:Inp] || SkP0(U,V,W,X,Y)* -> L3_Sender(X,W,V).
+33[0:Inp] || SkP0(U,V,W,X,Y)* -> L3_Sender(X,W,U).
+34[0:Inp] || SkP1(U,V,W,X,Y)* -> L2_Sender(X,W,V).
+35[0:Inp] || SkP1(U,V,W,X,Y)* -> L2_Sender(X,W,U).
+36[0:Inp] || SkP2(U,V,W,X,Y)* -> L1_Sender(X,W,V).
+37[0:Inp] || SkP2(U,V,W,X,Y)* -> L1_Sender(X,W,U).
+38[0:Inp] || L2_N(sent(a,ua,vagpkbpkananb))* -> L3_N(sent(a,ua,vagpkbpkananb)).
+39[0:Inp] || L3_N(sent(a,ua,vagpkbpkananb)) -> L2_N(sent(b,ub,vbgpkbpkananb))*.
+40[0:Inp] || L2_N(sent(b,ub,vbgpkbpkananb))* -> L3_N(sent(b,ub,vbgpkbpkananb)).
+41[0:Inp] || L3_N(sent(b,ub,vbgpkbpkananb)) -> L4_N(sent(ua,ub,va))*.
+42[0:Inp] || L4_N(sent(ua,ub,va))* -> L4_N(sent(ub,ua,vb)).
+43[0:Inp] || KnowsPair(U,pair(V,W))* Agent(U) -> Knows(U,V).
+44[0:Inp] || KnowsPair(U,pair(V,W))* Agent(U) -> Knows(U,W).
+45[0:Inp] || L2_N(sent(b,a,cbf1pkbpkanb0)) -> L1_E(sent(b,a,cbf1pkbpkanb0),dy)*.
+46[0:Inp] || L2_N(sent(b,a,cbf1pkbpkanb0)) -> L1_B(sent(b,a,cbf1pkbpkanb0),dy)*.
+47[0:Inp] || L2_N(sent(b,a,cbf1pkbpkanb0)) -> L1_S(sent(b,a,cbf1pkbpkanb0),dy)*.
+48[0:Inp] || L2_N(sent(b,a,cbf1pkbpkanb0)) -> L1_I(sent(b,a,cbf1pkbpkanb0),dy)*.
+49[0:Inp] || L2_N(sent(b,a,cbf1pkbpkanb0)) -> L1_C(sent(b,a,cbf1pkbpkanb0),dy)*.
+50[0:Inp] || L2_N(sent(b,a,cbf1pkbpkanb0)) -> L1_O(sent(b,a,cbf1pkbpkanb0),dy)*.
+51[0:Inp] || L2_N(sent(b,a,cbf1pkbpkanb0)) -> L1_F(sent(b,a,cbf1pkbpkanb0),dy)*.
+52[0:Inp] || L2_N(sent(a,b,na)) -> L1_E(sent(a,b,na),dy)*.
+53[0:Inp] || L2_N(sent(a,b,na)) -> L1_B(sent(a,b,na),dy)*.
+54[0:Inp] || L2_N(sent(a,b,na)) -> L1_S(sent(a,b,na),dy)*.
+55[0:Inp] || L2_N(sent(a,b,na)) -> L1_I(sent(a,b,na),dy)*.
+56[0:Inp] || L2_N(sent(a,b,na)) -> L1_C(sent(a,b,na),dy)*.
+57[0:Inp] || L2_N(sent(a,b,na)) -> L1_O(sent(a,b,na),dy)*.
+58[0:Inp] || L2_N(sent(a,b,na)) -> L1_F(sent(a,b,na),dy)*.
+59[0:Inp] || L2_N(sent(b,a,nb)) -> L1_E(sent(b,a,nb),dy)*.
+60[0:Inp] || L2_N(sent(b,a,nb)) -> L1_B(sent(b,a,nb),dy)*.
+61[0:Inp] || L2_N(sent(b,a,nb)) -> L1_S(sent(b,a,nb),dy)*.
+62[0:Inp] || L2_N(sent(b,a,nb)) -> L1_I(sent(b,a,nb),dy)*.
+63[0:Inp] || L2_N(sent(b,a,nb)) -> L1_C(sent(b,a,nb),dy)*.
+64[0:Inp] || L2_N(sent(b,a,nb)) -> L1_O(sent(b,a,nb),dy)*.
+65[0:Inp] || L2_N(sent(b,a,nb)) -> L1_F(sent(b,a,nb),dy)*.
+66[0:Inp] || Knows(U,V) SkP0(V,W,U,X,Y)* -> Knows(U,W).
+67[0:Inp] || Knows(U,V) SkP1(V,W,U,X,Y)* -> Knows(U,W).
+68[0:Inp] || Knows(U,V) SkP2(V,W,U,X,Y)* -> Knows(U,W).
+69[0:Inp] || Knows(U,V) Knows(U,W) Agent(U) -> KnowsPair(U,pair(V,W))*.
+70[0:Inp] || Honest(U) Agent(U) Knows(V,W)* Attacker(V) -> Knows(U,W)*.
+71[0:Inp] || Honest(U) Agent(U) Knows(V,W)* Attacker(V) -> Knows(U,W)*.
+72[0:Inp] || Honest(U) Agent(U) Knows(V,W)* Attacker(V) -> Knows(U,W)*.
+73[0:Inp] || Knows(U,V)* Attacker(U) Agent(W) Honest(W) -> Knows(W,V)*.
+74[0:Inp] || Knows(U,V)* Attacker(U) Agent(W) Honest(W) -> Knows(W,V)*.
+75[0:Inp] || Knows(U,V)* Attacker(U) Agent(W) Honest(W) -> Knows(W,V)*.
+76[0:Inp] || Honest(U) Agent(U) Knows(V,W) Attacker(V) -> L3_Sender(V,U,W)*.
+77[0:Inp] || Honest(U) Agent(U) Knows(V,W) Attacker(V) -> L2_Sender(V,U,W)*.
+78[0:Inp] || Honest(U) Agent(U) Knows(V,W) Attacker(V) -> L1_Sender(V,U,W)*.
+79[0:Inp] || Knows(U,V) Attacker(U) Agent(W) Honest(W) -> L3_Sender(U,W,V)*.
+80[0:Inp] || Knows(U,V) Attacker(U) Agent(W) Honest(W) -> L2_Sender(U,W,V)*.
+81[0:Inp] || Knows(U,V) Attacker(U) Agent(W) Honest(W) -> L1_Sender(U,W,V)*.
+82[0:Inp] || Knows(U,V) Knows(U,W) Agent(U) Key(W) -> KnowsEncr(U,encr(V,W))*.
+83[0:Inp] || KnowsEncr(U,encr(V,W))* Knows(U,W) Agent(U) Key(W) -> Knows(U,V).
+84[0:Inp] || Knows(U,V) Attacker(U) Agent(W) Honest(W) -> L3_I(sent(U,W,V),U)*.
+85[0:Inp] || Knows(U,V) Attacker(U) Agent(W) Honest(W) -> L2_I(sent(U,W,V),U)*.
+86[0:Inp] || Knows(U,V) Attacker(U) Agent(W) Honest(W) -> L1_I(sent(U,W,V),U)*.
+87[0:Inp] || KnowsPair(U,pair(V,W))* Attacker(U) Honest(X) Agent(X) -> KnowsPair(X,pair(V,W))*.
+88[0:Inp] || KnowsPair(U,pair(V,W))* Attacker(U) Honest(X) Agent(X) -> KnowsPair(X,pair(V,W))*.
+89[0:Inp] || KnowsPair(U,pair(V,W))* Attacker(U) Honest(X) Agent(X) -> KnowsPair(X,pair(V,W))*.
+90[0:Inp] || Honest(U) Agent(U) KnowsPair(V,pair(W,X))* Attacker(V) -> KnowsPair(U,pair(W,X))*.
+91[0:Inp] || Honest(U) Agent(U) KnowsPair(V,pair(W,X))* Attacker(V) -> KnowsPair(U,pair(W,X))*.
+92[0:Inp] || Honest(U) Agent(U) KnowsPair(V,pair(W,X))* Attacker(V) -> KnowsPair(U,pair(W,X))*.
+93[0:Inp] || KnowsPair(U,pair(V,W)) Attacker(U) Honest(X) Agent(X) -> L1_Sender(U,X,pair(V,W))*.
+94[0:Inp] || KnowsPair(U,pair(V,W)) Attacker(U) Honest(X) Agent(X) -> L2_Sender(U,X,pair(V,W))*.
+95[0:Inp] || KnowsPair(U,pair(V,W)) Attacker(U) Honest(X) Agent(X) -> L3_Sender(U,X,pair(V,W))*.
+96[0:Inp] || Honest(U) Agent(U) KnowsPair(V,pair(W,X)) Attacker(V) -> L1_Sender(V,U,pair(W,X))*.
+97[0:Inp] || Honest(U) Agent(U) KnowsPair(V,pair(W,X)) Attacker(V) -> L2_Sender(V,U,pair(W,X))*.
+98[0:Inp] || Honest(U) Agent(U) KnowsPair(V,pair(W,X)) Attacker(V) -> L3_Sender(V,U,pair(W,X))*.
+99[0:Inp] || KnowsPair(U,pair(V,W)) Attacker(U) Honest(X) Agent(X) -> L1_I(sent(U,X,pair(V,W)),U)*.
+100[0:Inp] || KnowsPair(U,pair(V,W)) Attacker(U) Honest(X) Agent(X) -> L2_I(sent(U,X,pair(V,W)),U)*.
+101[0:Inp] || KnowsPair(U,pair(V,W)) Attacker(U) Honest(X) Agent(X) -> L3_I(sent(U,X,pair(V,W)),U)*.
+102[0:Inp] || KnowsEncr(U,encr(pair(V,W),X))* Agent(U) Knows(U,X) Key(X) -> KnowsPair(U,pair(V,W)).
+103[0:Inp] || KnowsPair(U,pair(V,W)) Agent(U) Knows(U,X) Key(X) -> KnowsEncr(U,encr(pair(V,W),X))*.
+104[0:Inp] || Knows(U,V)* Knows(U,W)* Attacker(U) Agent(X) Honest(X) Key(W) -> KnowsEncr(X,encr(V,W))*.
+105[0:Inp] || Agent(U) Honest(U) Honest(V) Agent(V) Knows(W,X) Attacker(W) -> L1_S(sent(U,V,X),W)*.
+106[0:Inp] || Agent(U) Honest(U) Honest(V) Agent(V) Knows(W,X) Attacker(W) -> L2_S(sent(U,V,X),W)*.
+107[0:Inp] || Agent(U) Honest(U) Honest(V) Agent(V) Knows(W,X) Attacker(W) -> L3_S(sent(U,V,X),W)*.
+108[0:Inp] || Knows(U,V) Knows(U,W) Attacker(U) Agent(X) Honest(X) Key(W) -> L1_Sender(U,X,encr(V,W))*.
+109[0:Inp] || Knows(U,V) Knows(U,W) Attacker(U) Agent(X) Honest(X) Key(W) -> L1_I(sent(U,X,encr(V,W)),U)*.
+110[0:Inp] || Agent(U) Honest(U) L1_F(sent(U,V,W),X)* Honest(V) Agent(V) Attacker(X) Function(hash(W)) -> Knows(X,W).
+111[0:Inp] || KnowsPair(U,pair(V,W))* Attacker(U) Knows(U,X)* Honest(Y) Agent(Y) Key(X) -> KnowsEncr(Y,encr(pair(V,W),X))*.
+112[0:Inp] || Agent(U) Honest(U) Honest(V) Agent(V) KnowsPair(W,pair(X,Y)) Attacker(W) -> L1_S(sent(U,V,pair(X,Y)),W)*.
+113[0:Inp] || Agent(U) Honest(U) Honest(V) Agent(V) KnowsPair(W,pair(X,Y)) Attacker(W) -> L2_S(sent(U,V,pair(X,Y)),W)*.
+114[0:Inp] || Agent(U) Honest(U) Honest(V) Agent(V) KnowsPair(W,pair(X,Y)) Attacker(W) -> L3_S(sent(U,V,pair(X,Y)),W)*.
+115[0:Inp] || Knows(U,V) L1_B(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> Knows(X,V).
+116[0:Inp] || Knows(U,V) L2_B(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> Knows(X,V).
+117[0:Inp] || Knows(U,V) L3_B(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> Knows(X,V).
+118[0:Inp] || Knows(U,V) L1_E(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> Knows(X,V).
+119[0:Inp] || Knows(U,V) L1_E(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> Knows(W,V).
+120[0:Inp] || Knows(U,V) L2_E(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> Knows(X,V).
+121[0:Inp] || Knows(U,V) L2_E(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> Knows(W,V).
+122[0:Inp] || Knows(U,V) L3_E(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> Knows(X,V).
+123[0:Inp] || Knows(U,V) L3_E(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> Knows(W,V).
+124[0:Inp] || Agent(U) Honest(U) L1_F(sent(U,V,W),X)* Honest(V) Agent(V) Attacker(X) Function(hash(W)) -> L1_Sender(U,V,W).
+125[0:Inp] || Agent(U) Honest(U) L1_F(sent(U,V,W),X)* Honest(V) Agent(V) Attacker(X) Function(hash(W)) -> Knows(X,hash(W)).
+126[0:Inp] || KnowsPair(U,pair(V,W)) Attacker(U) Knows(U,X) Honest(Y) Agent(Y) Key(X) -> L1_Sender(U,Y,encr(pair(V,W),X))*.
+127[0:Inp] || Knows(U,V) L1_B(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> L1_Sender(U,W,V).
+128[0:Inp] || Knows(U,V) L1_B(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> L1_WasBlocked(W,V,X).
+129[0:Inp] || Knows(U,V) L2_B(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> L2_Sender(U,W,V).
+130[0:Inp] || Knows(U,V) L2_B(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> L2_WasBlocked(W,V,X).
+131[0:Inp] || Knows(U,V) L3_B(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> L3_Sender(U,W,V).
+132[0:Inp] || Knows(U,V) L3_B(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> L3_WasBlocked(W,V,X).
+133[0:Inp] || Knows(U,V) L1_E(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> L1_Sender(U,W,V).
+134[0:Inp] || Knows(U,V) L2_E(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> L2_Sender(U,W,V).
+135[0:Inp] || Knows(U,V) L3_E(sent(U,W,V),X)* Honest(U) Agent(U) Agent(W) Honest(W) Attacker(X) -> L3_Sender(U,W,V).
+136[0:Inp] || KnowsPair(U,pair(V,W)) Attacker(U) Knows(U,X) Honest(Y) Agent(Y) Key(X) -> L1_I(sent(U,Y,encr(pair(V,W),X)),U)*.
+137[0:Inp] || Agent(U) Honest(U) Knows(U,V) L2_F(sent(U,W,V),X)* Honest(W) Agent(W) Attacker(X) Function(hash(V)) -> Knows(X,V).
+138[0:Inp] || Agent(U) Honest(U) Knows(U,V) L3_F(sent(U,W,V),X)* Honest(W) Agent(W) Attacker(X) Function(hash(V)) -> Knows(X,V).
+139[0:Inp] || Agent(U) Honest(U) Knows(U,V) L2_F(sent(U,W,V),X)* Honest(W) Agent(W) Attacker(X) Function(hash(V)) -> L2_Sender(U,W,V).
+140[0:Inp] || Agent(U) Honest(U) Knows(U,V) L2_F(sent(U,W,V),X)* Honest(W) Agent(W) Attacker(X) Function(hash(V)) -> Knows(X,hash(V)).
+141[0:Inp] || Agent(U) Honest(U) Knows(U,V) L3_F(sent(U,W,V),X)* Honest(W) Agent(W) Attacker(X) Function(hash(V)) -> Knows(X,hash(V)).
+142[0:Inp] || Agent(U) Honest(U) Knows(U,V) L3_F(sent(U,W,V),X)* Honest(W) Agent(W) Attacker(X) Function(hash(V)) -> L3_Sender(U,W,V).
+143[0:Inp] || KnowsPair(U,pair(V,W)) L1_B(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> KnowsPair(Y,pair(V,W)).
+144[0:Inp] || KnowsPair(U,pair(V,W)) L2_B(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> KnowsPair(Y,pair(V,W)).
+145[0:Inp] || KnowsPair(U,pair(V,W)) L3_B(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> KnowsPair(Y,pair(V,W)).
+146[0:Inp] || KnowsPair(U,pair(V,W)) L1_E(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> KnowsPair(Y,pair(V,W)).
+147[0:Inp] || KnowsPair(U,pair(V,W)) L1_E(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> KnowsPair(X,pair(V,W)).
+148[0:Inp] || KnowsPair(U,pair(V,W)) L2_E(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> KnowsPair(Y,pair(V,W)).
+149[0:Inp] || KnowsPair(U,pair(V,W)) L2_E(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> KnowsPair(X,pair(V,W)).
+150[0:Inp] || KnowsPair(U,pair(V,W)) L3_E(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> KnowsPair(Y,pair(V,W)).
+151[0:Inp] || KnowsPair(U,pair(V,W)) L3_E(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> KnowsPair(X,pair(V,W)).
+152[0:Inp] || KnowsPair(U,pair(V,W)) L1_B(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> L1_Sender(U,X,pair(V,W)).
+153[0:Inp] || KnowsPair(U,pair(V,W)) L1_B(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> L1_WasBlocked(X,pair(V,W),Y).
+154[0:Inp] || KnowsPair(U,pair(V,W)) L2_B(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> L2_Sender(U,X,pair(V,W)).
+155[0:Inp] || KnowsPair(U,pair(V,W)) L2_B(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> L2_WasBlocked(X,pair(V,W),Y).
+156[0:Inp] || KnowsPair(U,pair(V,W)) L3_B(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> L3_Sender(U,X,pair(V,W)).
+157[0:Inp] || KnowsPair(U,pair(V,W)) L3_B(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> L3_WasBlocked(X,pair(V,W),Y).
+158[0:Inp] || KnowsPair(U,pair(V,W)) L1_E(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> L1_Sender(U,X,pair(V,W)).
+159[0:Inp] || KnowsPair(U,pair(V,W)) L2_E(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> L2_Sender(U,X,pair(V,W)).
+160[0:Inp] || KnowsPair(U,pair(V,W)) L3_E(sent(U,X,pair(V,W)),Y)* Agent(U) Honest(U) Honest(X) Agent(X) Attacker(Y) -> L3_Sender(U,X,pair(V,W)).
+161[0:Inp] || Knows(U,V) L1_E(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Attacker(Y) Key(X) -> KnowsEncr(W,encr(V,X)).
+162[0:Inp] || Knows(U,V) L1_B(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Attacker(Y) Key(X) -> KnowsEncr(Y,encr(V,X)).
+163[0:Inp] || Knows(U,V) L1_E(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Attacker(Y) Key(X) -> KnowsEncr(Y,encr(V,X)).
+164[0:Inp] || Knows(U,V) L1_E(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Attacker(Y) Key(X) -> KnowsEncr(W,encr(V,X)).
+165[0:Inp] || Knows(U,V) L1_E(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Attacker(Y) Key(X) -> L1_Sender(Y,W,encr(V,X)).
+166[0:Inp] || Knows(U,V) L1_B(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Attacker(Y) Key(X) -> L1_Sender(U,W,encr(V,X)).
+167[0:Inp] || Knows(U,V) L1_B(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Attacker(Y) Key(X) -> L1_WasBlocked(W,encr(V,X),Y).
+168[0:Inp] || Knows(U,V) L1_E(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Attacker(Y) Key(X) -> L1_Sender(U,W,encr(V,X)).
+169[0:Inp] || Knows(U,V) L1_C(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Knows(Y,X) Attacker(Y) Key(X) -> Knows(Y,V).
+170[0:Inp] || Knows(U,V) L2_C(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Knows(Y,X) Attacker(Y) Key(X) -> Knows(Y,V).
+171[0:Inp] || Knows(U,V) L3_C(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Knows(Y,X) Attacker(Y) Key(X) -> Knows(Y,V).
+172[0:Inp] || L1_O(sent(U,V,W),X) Knows(U,W) L1_O(sent(U,V,Y),X) Knows(U,Y) Agent(V) Honest(V) Honest(U) Agent(U) Attacker(X) -> SkP2(W,Y,V,U,X)*.
+173[0:Inp] || L2_O(sent(U,V,W),X) Knows(U,W) L2_O(sent(U,V,Y),X) Knows(U,Y) Agent(V) Honest(V) Honest(U) Agent(U) Attacker(X) -> SkP1(W,Y,V,U,X)*.
+174[0:Inp] || L3_O(sent(U,V,W),X) Knows(U,W) L3_O(sent(U,V,Y),X) Knows(U,Y) Agent(V) Honest(V) Honest(U) Agent(U) Attacker(X) -> SkP0(W,Y,V,U,X)*.
+175[0:Inp] || Knows(U,V) L1_C(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Knows(Y,X) Attacker(Y) Key(X) -> L1_Sender(U,W,V).
+176[0:Inp] || Knows(U,V) L2_C(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Knows(Y,X) Attacker(Y) Key(X) -> L2_Sender(U,W,V).
+177[0:Inp] || Knows(U,V) L3_C(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Knows(Y,X) Attacker(Y) Key(X) -> L3_Sender(U,W,V).
+178[0:Inp] || Knows(U,V) L1_E(sent(U,W,encr(V,X)),Y) Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Attacker(Y) Key(X) -> L1_S(sent(U,W,encr(V,X)),Y)*.
+179[0:Inp] || Knows(U,V) L1_C(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Knows(Y,X) Attacker(Y) Key(X) -> KnowsEncr(W,encr(V,X)).
+180[0:Inp] || Knows(U,V) L2_C(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Knows(Y,X) Attacker(Y) Key(X) -> KnowsEncr(W,encr(V,X)).
+181[0:Inp] || Knows(U,V) L3_C(sent(U,W,encr(V,X)),Y)* Knows(U,X) Honest(U) Agent(U) Agent(W) Honest(W) Knows(Y,X) Attacker(Y) Key(X) -> KnowsEncr(W,encr(V,X)).
+182[0:Inp] || KnowsPair(U,pair(V,W)) L1_E(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Key(Y) -> KnowsEncr(X,encr(pair(V,W),Y)).
+183[0:Inp] || KnowsPair(U,pair(V,W)) L1_B(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Key(Y) -> KnowsEncr(Z,encr(pair(V,W),Y)).
+184[0:Inp] || KnowsPair(U,pair(V,W)) L1_E(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Key(Y) -> KnowsEncr(Z,encr(pair(V,W),Y)).
+185[0:Inp] || KnowsPair(U,pair(V,W)) L1_E(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Key(Y) -> KnowsEncr(X,encr(pair(V,W),Y)).
+186[0:Inp] || KnowsPair(U,pair(V,W)) L1_E(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Key(Y) -> L1_Sender(Z,X,encr(pair(V,W),Y)).
+187[0:Inp] || KnowsPair(U,pair(V,W)) L1_B(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Key(Y) -> L1_Sender(U,X,encr(pair(V,W),Y)).
+188[0:Inp] || KnowsPair(U,pair(V,W)) L1_B(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Key(Y) -> L1_WasBlocked(X,encr(pair(V,W),Y),Z).
+189[0:Inp] || KnowsPair(U,pair(V,W)) L1_E(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Key(Y) -> L1_Sender(U,X,encr(pair(V,W),Y)).
+190[0:Inp] || KnowsPair(U,pair(V,W)) L1_C(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Knows(Z,Y) Key(Y) -> KnowsPair(Z,pair(V,W)).
+191[0:Inp] || KnowsPair(U,pair(V,W)) L2_C(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Knows(Z,Y) Key(Y) -> KnowsPair(Z,pair(V,W)).
+192[0:Inp] || KnowsPair(U,pair(V,W)) L3_C(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Knows(Z,Y) Key(Y) -> KnowsPair(Z,pair(V,W)).
+193[0:Inp] || KnowsPair(U,pair(V,W)) L1_C(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Knows(Z,Y) Key(Y) -> L1_Sender(U,X,pair(V,W)).
+194[0:Inp] || KnowsPair(U,pair(V,W)) L2_C(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Knows(Z,Y) Key(Y) -> L2_Sender(U,X,pair(V,W)).
+195[0:Inp] || KnowsPair(U,pair(V,W)) L3_C(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Knows(Z,Y) Key(Y) -> L3_Sender(U,X,pair(V,W)).
+196[0:Inp] || KnowsPair(U,pair(V,W)) L1_E(sent(U,X,encr(pair(V,W),Y)),Z) Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Key(Y) -> L1_S(sent(U,X,encr(pair(V,W),Y)),Z)*.
+197[0:Inp] || KnowsPair(U,pair(V,W)) L1_C(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Knows(Z,Y) Key(Y) -> KnowsEncr(X,encr(pair(V,W),Y)).
+198[0:Inp] || KnowsPair(U,pair(V,W)) L2_C(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Knows(Z,Y) Key(Y) -> KnowsEncr(X,encr(pair(V,W),Y)).
+199[0:Inp] || KnowsPair(U,pair(V,W)) L3_C(sent(U,X,encr(pair(V,W),Y)),Z)* Agent(U) Honest(U) Knows(U,Y) Honest(X) Agent(X) Attacker(Z) Knows(Z,Y) Key(Y) -> KnowsEncr(X,encr(pair(V,W),Y)).
+200[0:Inp] || L1_E(sent(b,a,nb),dy) L1_B(sent(b,a,nb),dy) L1_S(sent(b,a,nb),dy) L1_I(sent(b,a,nb),dy) L1_C(sent(b,a,nb),dy) L1_O(sent(b,a,nb),dy) L1_F(sent(b,a,nb),dy)* -> L2_N(sent(a,ua,vagpkbpkananb)).
+201[0:Inp] || L1_E(sent(a,b,na),dy) L1_B(sent(a,b,na),dy) L1_S(sent(a,b,na),dy) L1_I(sent(a,b,na),dy) L1_C(sent(a,b,na),dy) L1_O(sent(a,b,na),dy) L1_F(sent(a,b,na),dy)* -> L2_N(sent(b,a,nb)).
+202[0:Inp] || L1_E(sent(b,a,cbf1pkbpkanb0),dy) L1_B(sent(b,a,cbf1pkbpkanb0),dy) L1_S(sent(b,a,cbf1pkbpkanb0),dy) L1_I(sent(b,a,cbf1pkbpkanb0),dy) L1_C(sent(b,a,cbf1pkbpkanb0),dy) L1_O(sent(b,a,cbf1pkbpkanb0),dy) L1_F(sent(b,a,cbf1pkbpkanb0),dy)* -> L2_N(sent(a,b,na)).
+ This is a first-order Horn problem without equality.
+ This is a problem that contains sort information.
+ The conjecture is ground.
+ The following monadic predicates have finite extensions: DY, Attacker, Honest.
+ Axiom clauses: 199 Conjecture clauses: 3
+ Inferences: IEmS=1 ISoR=1 IORe=1 
+ Reductions: RFMRR=1 RBMRR=1 RObv=1 RUnC=1 RTaut=1 RSST=1 RSSi=1 RFSub=1 RBSub=1 RCon=1 
+ Extras    : Input Saturation, Dynamic Selection, No Splitting, Full Reduction,  Ratio: 5, FuncWeight: 1, VarWeight: 1
+ Precedence: hash > pair > encr > sent > L3_Sender > L2_Sender > L1_Sender > L1_WasBlocked > L3_WasBlocked > L2_WasBlocked > L3_S > L2_S > L2_I > L3_I > L4_N > SkP2 > SkP1 > SkP0 > L1_F > L1_O > L1_C > L1_I > L1_S > L1_B > L1_E > L2_N > L3_N > KnowsEncr > KnowsPair > Knows > Agent > L4_Sender > Attacker > Honest > Key > Function > DY > DA > MA > L3_E > L3_B > L3_C > L3_O > L3_F > L2_E > L2_B > L2_C > L2_O > L2_F > dy > a > b > ua > ub > cbf1pkbpkanb0 > na > nb > vagpkbpkananb > vbgpkbpkananb > va > vb
+ Ordering  : KBO
+Processed Problem:
+
+Worked Off Clauses:
+
+Usable Clauses:
+10[0:Inp] ||  -> DY(dy)*.
+9[0:Inp] ||  -> Attacker(dy)*.
+8[0:Inp] ||  -> Honest(ub)*.
+6[0:Inp] ||  -> Honest(ua)*.
+4[0:Inp] ||  -> Honest(b)*.
+2[0:Inp] ||  -> Honest(a)*.
+7[0:Inp] ||  -> Agent(ub)*.
+5[0:Inp] ||  -> Agent(ua)*.
+3[0:Inp] ||  -> Agent(b)*.
+1[0:Inp] ||  -> Agent(a)*.
+17[0:Inp] ||  -> Knows(ub,vb)*.
+16[0:Inp] ||  -> Knows(ua,va)*.
+15[0:Inp] ||  -> Knows(b,vbgpkbpkananb)*.
+14[0:Inp] ||  -> Knows(a,vagpkbpkananb)*.
+13[0:Inp] ||  -> Knows(b,nb)*.
+12[0:Inp] ||  -> Knows(a,na)*.
+11[0:Inp] ||  -> Knows(b,cbf1pkbpkanb0)*.
+20[0:Inp] || Knows(dy,nb)* -> .
+19[0:Inp] || Knows(dy,na)* -> .
+18[0:Inp] || Knows(dy,cbf1pkbpkanb0)* -> .
+250[0:MRR:38.0,249.0] ||  -> L3_N(sent(a,ua,vagpkbpkananb))*.
+252[0:MRR:40.0,251.0] ||  -> L3_N(sent(b,ub,vbgpkbpkananb))*.
+253[0:MRR:41.0,252.0] ||  -> L4_N(sent(ua,ub,va))*.
+254[0:MRR:42.0,253.0] ||  -> L4_N(sent(ub,ua,vb))*.
+22[0:Inp] ||  -> L2_N(sent(b,a,cbf1pkbpkanb0))*.
+231[0:MRR:202.0,202.1,202.2,202.3,202.4,202.5,202.6,209.0,208.0,207.0,206.0,205.0,204.0,203.0] ||  -> L2_N(sent(a,b,na))*.
+240[0:MRR:239.0,239.1,239.2,239.3,239.4,239.5,238.0,237.0,236.0,235.0,234.0,233.0] ||  -> L2_N(sent(b,a,nb))*.
+249[0:MRR:248.0,248.1,248.2,248.3,248.4,248.5,247.0,246.0,245.0,244.0,243.0,242.0] ||  -> L2_N(sent(a,ua,vagpkbpkananb))*.
+251[0:MRR:39.0,250.0] ||  -> L2_N(sent(b,ub,vbgpkbpkananb))*.
+21[0:Inp] Attacker(U) ||  -> Agent(U)*.
+204[0:MRR:50.0,22.0] ||  -> L1_O(sent(b,a,cbf1pkbpkanb0),dy)*.
+233[0:MRR:57.0,231.0] ||  -> L1_O(sent(a,b,na),dy)*.
+242[0:MRR:64.0,240.0] ||  -> L1_O(sent(b,a,nb),dy)*.
+206[0:MRR:48.0,22.0] ||  -> L1_I(sent(b,a,cbf1pkbpkanb0),dy)*.
+207[0:MRR:47.0,22.0] ||  -> L1_S(sent(b,a,cbf1pkbpkanb0),dy)*.
+235[0:MRR:55.0,231.0] ||  -> L1_I(sent(a,b,na),dy)*.
+236[0:MRR:54.0,231.0] ||  -> L1_S(sent(a,b,na),dy)*.
+244[0:MRR:62.0,240.0] ||  -> L1_I(sent(b,a,nb),dy)*.
+245[0:MRR:61.0,240.0] ||  -> L1_S(sent(b,a,nb),dy)*.
+203[0:MRR:51.0,22.0] ||  -> L1_F(sent(b,a,cbf1pkbpkanb0),dy)*.
+232[0:MRR:58.0,231.0] ||  -> L1_F(sent(a,b,na),dy)*.
+241[0:MRR:65.0,240.0] ||  -> L1_F(sent(b,a,nb),dy)*.
+205[0:MRR:49.0,22.0] ||  -> L1_C(sent(b,a,cbf1pkbpkanb0),dy)*.
+234[0:MRR:56.0,231.0] ||  -> L1_C(sent(a,b,na),dy)*.
+243[0:MRR:63.0,240.0] ||  -> L1_C(sent(b,a,nb),dy)*.
+208[0:MRR:46.0,22.0] ||  -> L1_B(sent(b,a,cbf1pkbpkanb0),dy)*.
+237[0:MRR:53.0,231.0] ||  -> L1_B(sent(a,b,na),dy)*.
+246[0:MRR:60.0,240.0] ||  -> L1_B(sent(b,a,nb),dy)*.
+209[0:MRR:45.0,22.0] ||  -> L1_E(sent(b,a,cbf1pkbpkanb0),dy)*.
+238[0:MRR:52.0,231.0] ||  -> L1_E(sent(a,b,na),dy)*.
+247[0:MRR:59.0,240.0] ||  -> L1_E(sent(b,a,nb),dy)*.
+255[0:Res:25.1,20.0] || SkP0(nb,U,dy,V,W)* -> .
+256[0:Res:28.1,20.0] || SkP1(nb,U,dy,V,W)* -> .
+257[0:Res:31.1,20.0] || SkP2(nb,U,dy,V,W)* -> .
+286[0:Res:25.1,19.0] || SkP0(na,U,dy,V,W)* -> .
+287[0:Res:28.1,19.0] || SkP1(na,U,dy,V,W)* -> .
+288[0:Res:31.1,19.0] || SkP2(na,U,dy,V,W)* -> .
+317[0:Res:25.1,18.0] || SkP0(cbf1pkbpkanb0,U,dy,V,W)* -> .
+318[0:Res:28.1,18.0] || SkP1(cbf1pkbpkanb0,U,dy,V,W)* -> .
+319[0:Res:31.1,18.0] || SkP2(cbf1pkbpkanb0,U,dy,V,W)* -> .
+258[0:Res:24.1,20.0] || SkP0(nb,U,V,W,dy)* -> .
+259[0:Res:27.1,20.0] || SkP1(nb,U,V,W,dy)* -> .
+260[0:Res:30.1,20.0] || SkP2(nb,U,V,W,dy)* -> .
+289[0:Res:24.1,19.0] || SkP0(na,U,V,W,dy)* -> .
+290[0:Res:27.1,19.0] || SkP1(na,U,V,W,dy)* -> .
+291[0:Res:30.1,19.0] || SkP2(na,U,V,W,dy)* -> .
+320[0:Res:24.1,18.0] || SkP0(cbf1pkbpkanb0,U,V,W,dy)* -> .
+321[0:Res:27.1,18.0] || SkP1(cbf1pkbpkanb0,U,V,W,dy)* -> .
+322[0:Res:30.1,18.0] || SkP2(cbf1pkbpkanb0,U,V,W,dy)* -> .
+264[0:Res:212.1,20.0] || SkP0(U,nb,dy,V,W)* -> .
+265[0:Res:211.1,20.0] || SkP1(U,nb,dy,V,W)* -> .
+266[0:Res:210.1,20.0] || SkP2(U,nb,dy,V,W)* -> .
+295[0:Res:212.1,19.0] || SkP0(U,na,dy,V,W)* -> .
+296[0:Res:211.1,19.0] || SkP1(U,na,dy,V,W)* -> .
+297[0:Res:210.1,19.0] || SkP2(U,na,dy,V,W)* -> .
+326[0:Res:212.1,18.0] || SkP0(U,cbf1pkbpkanb0,dy,V,W)* -> .
+327[0:Res:211.1,18.0] || SkP1(U,cbf1pkbpkanb0,dy,V,W)* -> .
+328[0:Res:210.1,18.0] || SkP2(U,cbf1pkbpkanb0,dy,V,W)* -> .
+261[0:Res:23.1,20.0] || SkP0(U,nb,V,W,dy)* -> .
+262[0:Res:26.1,20.0] || SkP1(U,nb,V,W,dy)* -> .
+263[0:Res:29.1,20.0] || SkP2(U,nb,V,W,dy)* -> .
+292[0:Res:23.1,19.0] || SkP0(U,na,V,W,dy)* -> .
+293[0:Res:26.1,19.0] || SkP1(U,na,V,W,dy)* -> .
+294[0:Res:29.1,19.0] || SkP2(U,na,V,W,dy)* -> .
+323[0:Res:23.1,18.0] || SkP0(U,cbf1pkbpkanb0,V,W,dy)* -> .
+324[0:Res:26.1,18.0] || SkP1(U,cbf1pkbpkanb0,V,W,dy)* -> .
+325[0:Res:29.1,18.0] || SkP2(U,cbf1pkbpkanb0,V,W,dy)* -> .
+269[0:Res:43.2,20.0] Agent(dy) || KnowsPair(dy,pair(nb,U))* -> .
+300[0:Res:43.2,19.0] Agent(dy) || KnowsPair(dy,pair(na,U))* -> .
+331[0:Res:43.2,18.0] Agent(dy) || KnowsPair(dy,pair(cbf1pkbpkanb0,U))* -> .
+268[0:Res:44.2,20.0] Agent(dy) || KnowsPair(dy,pair(U,nb))* -> .
+299[0:Res:44.2,19.0] Agent(dy) || KnowsPair(dy,pair(U,na))* -> .
+330[0:Res:44.2,18.0] Agent(dy) || KnowsPair(dy,pair(U,cbf1pkbpkanb0))* -> .
+31[0:Inp] || SkP2(U,V,W,X,Y)* -> Knows(W,U).
+30[0:Inp] || SkP2(U,V,W,X,Y)* -> Knows(Y,U).
+29[0:Inp] || SkP2(U,V,W,X,Y)* -> Knows(Y,V).
+28[0:Inp] || SkP1(U,V,W,X,Y)* -> Knows(W,U).
+27[0:Inp] || SkP1(U,V,W,X,Y)* -> Knows(Y,U).
+26[0:Inp] || SkP1(U,V,W,X,Y)* -> Knows(Y,V).
+25[0:Inp] || SkP0(U,V,W,X,Y)* -> Knows(W,U).
+24[0:Inp] || SkP0(U,V,W,X,Y)* -> Knows(Y,U).
+23[0:Inp] || SkP0(U,V,W,X,Y)* -> Knows(Y,V).
+210[0:MRR:68.0,31.1] || SkP2(U,V,W,X,Y)* -> Knows(W,V).
+211[0:MRR:67.0,28.1] || SkP1(U,V,W,X,Y)* -> Knows(W,V).
+212[0:MRR:66.0,25.1] || SkP0(U,V,W,X,Y)* -> Knows(W,V).
+35[0:Inp] || SkP1(U,V,W,X,Y)* -> L2_Sender(X,W,U).
+34[0:Inp] || SkP1(U,V,W,X,Y)* -> L2_Sender(X,W,V).
+33[0:Inp] || SkP0(U,V,W,X,Y)* -> L3_Sender(X,W,U).
+32[0:Inp] || SkP0(U,V,W,X,Y)* -> L3_Sender(X,W,V).
+37[0:Inp] || SkP2(U,V,W,X,Y)* -> L1_Sender(X,W,U).
+36[0:Inp] || SkP2(U,V,W,X,Y)* -> L1_Sender(X,W,V).
+44[0:Inp] Agent(U) || KnowsPair(U,pair(V,W))* -> Knows(U,W).
+43[0:Inp] Agent(U) || KnowsPair(U,pair(V,W))* -> Knows(U,V).
+270[0:Res:75.4,20.0] Attacker(U) Honest(dy) Agent(dy) || Knows(U,nb)* -> .
+301[0:Res:75.4,19.0] Attacker(U) Honest(dy) Agent(dy) || Knows(U,na)* -> .
+332[0:Res:75.4,18.0] Attacker(U) Honest(dy) Agent(dy) || Knows(U,cbf1pkbpkanb0)* -> .
+75[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W)* -> Knows(U,W)*.
+69[0:Inp] Agent(U) || Knows(U,V) Knows(U,W) -> KnowsPair(U,pair(V,W))*.
+267[0:Res:83.4,20.0] Key(U) Agent(dy) || Knows(dy,U) KnowsEncr(dy,encr(nb,U))* -> .
+298[0:Res:83.4,19.0] Key(U) Agent(dy) || Knows(dy,U) KnowsEncr(dy,encr(na,U))* -> .
+329[0:Res:83.4,18.0] Key(U) Agent(dy) || Knows(dy,U) KnowsEncr(dy,encr(cbf1pkbpkanb0,U))* -> .
+80[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L2_Sender(V,U,W)*.
+79[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L3_Sender(V,U,W)*.
+81[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L1_Sender(V,U,W)*.
+85[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L2_I(sent(V,U,W),V)*.
+84[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L3_I(sent(V,U,W),V)*.
+86[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L1_I(sent(V,U,W),V)*.
+82[0:Inp] Key(U) Agent(V) || Knows(V,U) Knows(V,W) -> KnowsEncr(V,encr(W,U))*.
+83[0:Inp] Key(U) Agent(V) || Knows(V,U) KnowsEncr(V,encr(W,U))* -> Knows(V,W).
+87[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X))* -> KnowsPair(U,pair(W,X))*.
+94[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L2_Sender(V,U,pair(W,X))*.
+95[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L3_Sender(V,U,pair(W,X))*.
+93[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L1_Sender(V,U,pair(W,X))*.
+100[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L2_I(sent(V,U,pair(W,X)),V)*.
+101[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L3_I(sent(V,U,pair(W,X)),V)*.
+99[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L1_I(sent(V,U,pair(W,X)),V)*.
+103[0:Inp] Key(U) Agent(V) || Knows(V,U) KnowsPair(V,pair(W,X)) -> KnowsEncr(V,encr(pair(W,X),U))*.
+102[0:Inp] Key(U) Agent(V) || Knows(V,U) KnowsEncr(V,encr(pair(W,X),U))* -> KnowsPair(V,pair(W,X)).
+350[0:MRR:339.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L2_B(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+351[0:MRR:338.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L3_B(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+357[0:MRR:308.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L2_B(sent(V,U,na),dy)* -> .
+358[0:MRR:307.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L3_B(sent(V,U,na),dy)* -> .
+364[0:MRR:277.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L2_B(sent(V,U,nb),dy)* -> .
+365[0:MRR:276.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L3_B(sent(V,U,nb),dy)* -> .
+353[0:MRR:336.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L2_E(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+354[0:MRR:335.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L3_E(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+360[0:MRR:305.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L2_E(sent(V,U,na),dy)* -> .
+361[0:MRR:304.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L3_E(sent(V,U,na),dy)* -> .
+367[0:MRR:274.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L2_E(sent(V,U,nb),dy)* -> .
+368[0:MRR:273.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L3_E(sent(V,U,nb),dy)* -> .
+349[0:MRR:340.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L1_B(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+356[0:MRR:309.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L1_B(sent(V,U,na),dy)* -> .
+363[0:MRR:278.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L1_B(sent(V,U,nb),dy)* -> .
+352[0:MRR:337.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L1_E(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+359[0:MRR:306.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L1_E(sent(V,U,na),dy)* -> .
+366[0:MRR:275.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L1_E(sent(V,U,nb),dy)* -> .
+348[0:MRR:341.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(cbf1pkbpkanb0)) L1_F(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+355[0:MRR:310.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(na)) L1_F(sent(V,U,na),dy)* -> .
+362[0:MRR:279.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(nb)) L1_F(sent(V,U,nb),dy)* -> .
+106[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Knows(U,X) -> L2_S(sent(W,V,X),U)*.
+107[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Knows(U,X) -> L3_S(sent(W,V,X),U)*.
+105[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Knows(U,X) -> L1_S(sent(W,V,X),U)*.
+104[0:Inp] Key(U) Honest(V) Agent(V) Attacker(W) || Knows(W,U)* Knows(W,X)* -> KnowsEncr(V,encr(X,U))*.
+108[0:Inp] Key(U) Honest(V) Agent(V) Attacker(W) || Knows(W,U) Knows(W,X) -> L1_Sender(W,V,encr(X,U))*.
+343[0:Res:121.7,18.0] Attacker(U) Agent(V) Honest(V) Honest(dy) Agent(dy) || Knows(V,cbf1pkbpkanb0) L2_E(sent(V,dy,cbf1pkbpkanb0),U)* -> .
+342[0:Res:123.7,18.0] Attacker(U) Agent(V) Honest(V) Honest(dy) Agent(dy) || Knows(V,cbf1pkbpkanb0) L3_E(sent(V,dy,cbf1pkbpkanb0),U)* -> .
+312[0:Res:121.7,19.0] Attacker(U) Agent(V) Honest(V) Honest(dy) Agent(dy) || Knows(V,na) L2_E(sent(V,dy,na),U)* -> .
+311[0:Res:123.7,19.0] Attacker(U) Agent(V) Honest(V) Honest(dy) Agent(dy) || Knows(V,na) L3_E(sent(V,dy,na),U)* -> .
+281[0:Res:121.7,20.0] Attacker(U) Agent(V) Honest(V) Honest(dy) Agent(dy) || Knows(V,nb) L2_E(sent(V,dy,nb),U)* -> .
+280[0:Res:123.7,20.0] Attacker(U) Agent(V) Honest(V) Honest(dy) Agent(dy) || Knows(V,nb) L3_E(sent(V,dy,nb),U)* -> .
+344[0:Res:119.7,18.0] Attacker(U) Agent(V) Honest(V) Honest(dy) Agent(dy) || Knows(V,cbf1pkbpkanb0) L1_E(sent(V,dy,cbf1pkbpkanb0),U)* -> .
+313[0:Res:119.7,19.0] Attacker(U) Agent(V) Honest(V) Honest(dy) Agent(dy) || Knows(V,na) L1_E(sent(V,dy,na),U)* -> .
+282[0:Res:119.7,20.0] Attacker(U) Agent(V) Honest(V) Honest(dy) Agent(dy) || Knows(V,nb) L1_E(sent(V,dy,nb),U)* -> .
+369[0:MRR:334.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(cbf1pkbpkanb0)) Knows(V,cbf1pkbpkanb0) L2_F(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+370[0:MRR:333.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(cbf1pkbpkanb0)) Knows(V,cbf1pkbpkanb0) L3_F(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+371[0:MRR:303.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(na)) Knows(V,na) L2_F(sent(V,U,na),dy)* -> .
+372[0:MRR:302.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(na)) Knows(V,na) L3_F(sent(V,U,na),dy)* -> .
+373[0:MRR:272.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(nb)) Knows(V,nb) L2_F(sent(V,U,nb),dy)* -> .
+374[0:MRR:271.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(nb)) Knows(V,nb) L3_F(sent(V,U,nb),dy)* -> .
+109[0:Inp] Key(U) Honest(V) Agent(V) Attacker(W) || Knows(W,U) Knows(W,X) -> L1_I(sent(W,V,encr(X,U)),W)*.
+116[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L2_B(sent(W,V,X),U)* -> Knows(U,X).
+117[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L3_B(sent(W,V,X),U)* -> Knows(U,X).
+121[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L2_E(sent(W,V,X),U)* -> Knows(V,X).
+123[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L3_E(sent(W,V,X),U)* -> Knows(V,X).
+120[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L2_E(sent(W,V,X),U)* -> Knows(U,X).
+122[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L3_E(sent(W,V,X),U)* -> Knows(U,X).
+115[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L1_B(sent(W,V,X),U)* -> Knows(U,X).
+119[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L1_E(sent(W,V,X),U)* -> Knows(V,X).
+118[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L1_E(sent(W,V,X),U)* -> Knows(U,X).
+110[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Function(hash(X)) L1_F(sent(W,V,X),U)* -> Knows(U,X).
+113[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(U,pair(X,Y)) -> L2_S(sent(W,V,pair(X,Y)),U)*.
+114[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(U,pair(X,Y)) -> L3_S(sent(W,V,pair(X,Y)),U)*.
+112[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(U,pair(X,Y)) -> L1_S(sent(W,V,pair(X,Y)),U)*.
+111[0:Inp] Key(U) Agent(V) Honest(V) Attacker(W) || Knows(W,U)* KnowsPair(W,pair(X,Y))* -> KnowsEncr(V,encr(pair(X,Y),U))*.
+130[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L2_B(sent(W,V,X),U)* -> L2_WasBlocked(V,X,U).
+132[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L3_B(sent(W,V,X),U)* -> L3_WasBlocked(V,X,U).
+128[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L1_B(sent(W,V,X),U)* -> L1_WasBlocked(V,X,U).
+129[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L2_B(sent(W,V,X),U)* -> L2_Sender(W,V,X).
+131[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L3_B(sent(W,V,X),U)* -> L3_Sender(W,V,X).
+134[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L2_E(sent(W,V,X),U)* -> L2_Sender(W,V,X).
+135[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L3_E(sent(W,V,X),U)* -> L3_Sender(W,V,X).
+127[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L1_B(sent(W,V,X),U)* -> L1_Sender(W,V,X).
+133[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L1_E(sent(W,V,X),U)* -> L1_Sender(W,V,X).
+124[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Function(hash(X)) L1_F(sent(W,V,X),U)* -> L1_Sender(W,V,X).
+125[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Function(hash(X)) L1_F(sent(W,V,X),U)* -> Knows(U,hash(X)).
+126[0:Inp] Key(U) Agent(V) Honest(V) Attacker(W) || Knows(W,U) KnowsPair(W,pair(X,Y)) -> L1_Sender(W,V,encr(pair(X,Y),U))*.
+136[0:Inp] Key(U) Agent(V) Honest(V) Attacker(W) || Knows(W,U) KnowsPair(W,pair(X,Y)) -> L1_I(sent(W,V,encr(pair(X,Y),U)),W)*.
+376[0:MRR:346.4,9.0] Key(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,cbf1pkbpkanb0) Knows(dy,U) L2_C(sent(W,V,encr(cbf1pkbpkanb0,U)),dy)* -> .
+377[0:MRR:345.4,9.0] Key(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,cbf1pkbpkanb0) Knows(dy,U) L3_C(sent(W,V,encr(cbf1pkbpkanb0,U)),dy)* -> .
+379[0:MRR:315.4,9.0] Key(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,na) Knows(dy,U) L2_C(sent(W,V,encr(na,U)),dy)* -> .
+380[0:MRR:314.4,9.0] Key(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,na) Knows(dy,U) L3_C(sent(W,V,encr(na,U)),dy)* -> .
+382[0:MRR:284.4,9.0] Key(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,nb) Knows(dy,U) L2_C(sent(W,V,encr(nb,U)),dy)* -> .
+383[0:MRR:283.4,9.0] Key(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,nb) Knows(dy,U) L3_C(sent(W,V,encr(nb,U)),dy)* -> .
+375[0:MRR:347.4,9.0] Key(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,cbf1pkbpkanb0) Knows(dy,U) L1_C(sent(W,V,encr(cbf1pkbpkanb0,U)),dy)* -> .
+378[0:MRR:316.4,9.0] Key(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,na) Knows(dy,U) L1_C(sent(W,V,encr(na,U)),dy)* -> .
+381[0:MRR:285.4,9.0] Key(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,nb) Knows(dy,U) L1_C(sent(W,V,encr(nb,U)),dy)* -> .
+137[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Function(hash(X)) Knows(W,X) L2_F(sent(W,V,X),U)* -> Knows(U,X).
+138[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Function(hash(X)) Knows(W,X) L3_F(sent(W,V,X),U)* -> Knows(U,X).
+139[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Function(hash(X)) Knows(W,X) L2_F(sent(W,V,X),U)* -> L2_Sender(W,V,X).
+142[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Function(hash(X)) Knows(W,X) L3_F(sent(W,V,X),U)* -> L3_Sender(W,V,X).
+140[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Function(hash(X)) Knows(W,X) L2_F(sent(W,V,X),U)* -> Knows(U,hash(X)).
+141[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Function(hash(X)) Knows(W,X) L3_F(sent(W,V,X),U)* -> Knows(U,hash(X)).
+144[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L2_B(sent(W,V,pair(X,Y)),U)* -> KnowsPair(U,pair(X,Y)).
+145[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L3_B(sent(W,V,pair(X,Y)),U)* -> KnowsPair(U,pair(X,Y)).
+149[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L2_E(sent(W,V,pair(X,Y)),U)* -> KnowsPair(V,pair(X,Y)).
+151[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L3_E(sent(W,V,pair(X,Y)),U)* -> KnowsPair(V,pair(X,Y)).
+148[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L2_E(sent(W,V,pair(X,Y)),U)* -> KnowsPair(U,pair(X,Y)).
+150[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L3_E(sent(W,V,pair(X,Y)),U)* -> KnowsPair(U,pair(X,Y)).
+143[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L1_B(sent(W,V,pair(X,Y)),U)* -> KnowsPair(U,pair(X,Y)).
+147[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L1_E(sent(W,V,pair(X,Y)),U)* -> KnowsPair(V,pair(X,Y)).
+146[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L1_E(sent(W,V,pair(X,Y)),U)* -> KnowsPair(U,pair(X,Y)).
+155[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L2_B(sent(W,V,pair(X,Y)),U)* -> L2_WasBlocked(V,pair(X,Y),U).
+157[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L3_B(sent(W,V,pair(X,Y)),U)* -> L3_WasBlocked(V,pair(X,Y),U).
+153[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L1_B(sent(W,V,pair(X,Y)),U)* -> L1_WasBlocked(V,pair(X,Y),U).
+154[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L2_B(sent(W,V,pair(X,Y)),U)* -> L2_Sender(W,V,pair(X,Y)).
+156[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L3_B(sent(W,V,pair(X,Y)),U)* -> L3_Sender(W,V,pair(X,Y)).
+159[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L2_E(sent(W,V,pair(X,Y)),U)* -> L2_Sender(W,V,pair(X,Y)).
+160[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L3_E(sent(W,V,pair(X,Y)),U)* -> L3_Sender(W,V,pair(X,Y)).
+152[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L1_B(sent(W,V,pair(X,Y)),U)* -> L1_Sender(W,V,pair(X,Y)).
+158[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || KnowsPair(W,pair(X,Y)) L1_E(sent(W,V,pair(X,Y)),U)* -> L1_Sender(W,V,pair(X,Y)).
+214[0:MRR:170.9,75.4] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(V,U) Knows(X,Y) L2_C(sent(X,W,encr(Y,U)),V)* -> Knows(V,Y).
+215[0:MRR:171.9,75.4] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(V,U) Knows(X,Y) L3_C(sent(X,W,encr(Y,U)),V)* -> Knows(V,Y).
+213[0:MRR:169.9,75.4] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(V,U) Knows(X,Y) L1_C(sent(X,W,encr(Y,U)),V)* -> Knows(V,Y).
+217[0:MRR:176.9,75.4] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(V,U) Knows(X,Y) L2_C(sent(X,W,encr(Y,U)),V)* -> L2_Sender(X,W,Y).
+218[0:MRR:177.9,75.4] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(V,U) Knows(X,Y) L3_C(sent(X,W,encr(Y,U)),V)* -> L3_Sender(X,W,Y).
+216[0:MRR:175.9,75.4] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(V,U) Knows(X,Y) L1_C(sent(X,W,encr(Y,U)),V)* -> L1_Sender(X,W,Y).
+220[0:MRR:180.9,75.4] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(V,U) Knows(X,Y) L2_C(sent(X,W,encr(Y,U)),V)* -> KnowsEncr(W,encr(Y,U)).
+221[0:MRR:181.9,75.4] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(V,U) Knows(X,Y) L3_C(sent(X,W,encr(Y,U)),V)* -> KnowsEncr(W,encr(Y,U)).
+219[0:MRR:179.9,75.4] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(V,U) Knows(X,Y) L1_C(sent(X,W,encr(Y,U)),V)* -> KnowsEncr(W,encr(Y,U)).
+162[0:Inp] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(X,U) Knows(X,Y) L1_B(sent(X,W,encr(Y,U)),V)* -> KnowsEncr(V,encr(Y,U)).
+161[0:Inp] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(X,U) Knows(X,Y) L1_E(sent(X,W,encr(Y,U)),V)* -> KnowsEncr(W,encr(Y,U)).
+163[0:Inp] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(X,U) Knows(X,Y) L1_E(sent(X,W,encr(Y,U)),V)* -> KnowsEncr(V,encr(Y,U)).
+167[0:Inp] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(X,U) Knows(X,Y) L1_B(sent(X,W,encr(Y,U)),V)* -> L1_WasBlocked(W,encr(Y,U),V).
+166[0:Inp] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(X,U) Knows(X,Y) L1_B(sent(X,W,encr(Y,U)),V)* -> L1_Sender(X,W,encr(Y,U)).
+168[0:Inp] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(X,U) Knows(X,Y) L1_E(sent(X,W,encr(Y,U)),V)* -> L1_Sender(X,W,encr(Y,U)).
+165[0:Inp] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(X,U) Knows(X,Y) L1_E(sent(X,W,encr(Y,U)),V)* -> L1_Sender(V,W,encr(Y,U)).
+178[0:Inp] Key(U) Attacker(V) Honest(W) Agent(W) Agent(X) Honest(X) || Knows(X,U) Knows(X,Y) L1_E(sent(X,W,encr(Y,U)),V) -> L1_S(sent(X,W,encr(Y,U)),V)*.
+173[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Knows(V,X) Knows(V,Y) L2_O(sent(V,W,Y),U) L2_O(sent(V,W,X),U) -> SkP1(Y,X,W,V,U)*.
+174[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Knows(V,X) Knows(V,Y) L3_O(sent(V,W,Y),U) L3_O(sent(V,W,X),U) -> SkP0(Y,X,W,V,U)*.
+172[0:Inp] Attacker(U) Agent(V) Honest(V) Honest(W) Agent(W) || Knows(V,X) Knows(V,Y) L1_O(sent(V,W,Y),U) L1_O(sent(V,W,X),U) -> SkP2(Y,X,W,V,U)*.
+223[0:MRR:191.7,75.4] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(V,U) KnowsPair(X,pair(Y,Z)) L2_C(sent(X,W,encr(pair(Y,Z),U)),V)* -> KnowsPair(V,pair(Y,Z)).
+224[0:MRR:192.7,75.4] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(V,U) KnowsPair(X,pair(Y,Z)) L3_C(sent(X,W,encr(pair(Y,Z),U)),V)* -> KnowsPair(V,pair(Y,Z)).
+222[0:MRR:190.7,75.4] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(V,U) KnowsPair(X,pair(Y,Z)) L1_C(sent(X,W,encr(pair(Y,Z),U)),V)* -> KnowsPair(V,pair(Y,Z)).
+226[0:MRR:194.7,75.4] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(V,U) KnowsPair(X,pair(Y,Z)) L2_C(sent(X,W,encr(pair(Y,Z),U)),V)* -> L2_Sender(X,W,pair(Y,Z)).
+227[0:MRR:195.7,75.4] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(V,U) KnowsPair(X,pair(Y,Z)) L3_C(sent(X,W,encr(pair(Y,Z),U)),V)* -> L3_Sender(X,W,pair(Y,Z)).
+225[0:MRR:193.7,75.4] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(V,U) KnowsPair(X,pair(Y,Z)) L1_C(sent(X,W,encr(pair(Y,Z),U)),V)* -> L1_Sender(X,W,pair(Y,Z)).
+229[0:MRR:198.7,75.4] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(V,U) KnowsPair(X,pair(Y,Z)) L2_C(sent(X,W,encr(pair(Y,Z),U)),V)* -> KnowsEncr(W,encr(pair(Y,Z),U)).
+230[0:MRR:199.7,75.4] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(V,U) KnowsPair(X,pair(Y,Z)) L3_C(sent(X,W,encr(pair(Y,Z),U)),V)* -> KnowsEncr(W,encr(pair(Y,Z),U)).
+228[0:MRR:197.7,75.4] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(V,U) KnowsPair(X,pair(Y,Z)) L1_C(sent(X,W,encr(pair(Y,Z),U)),V)* -> KnowsEncr(W,encr(pair(Y,Z),U)).
+183[0:Inp] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(X,U) KnowsPair(X,pair(Y,Z)) L1_B(sent(X,W,encr(pair(Y,Z),U)),V)* -> KnowsEncr(V,encr(pair(Y,Z),U)).
+182[0:Inp] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(X,U) KnowsPair(X,pair(Y,Z)) L1_E(sent(X,W,encr(pair(Y,Z),U)),V)* -> KnowsEncr(W,encr(pair(Y,Z),U)).
+184[0:Inp] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(X,U) KnowsPair(X,pair(Y,Z)) L1_E(sent(X,W,encr(pair(Y,Z),U)),V)* -> KnowsEncr(V,encr(pair(Y,Z),U)).
+188[0:Inp] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(X,U) KnowsPair(X,pair(Y,Z)) L1_B(sent(X,W,encr(pair(Y,Z),U)),V)* -> L1_WasBlocked(W,encr(pair(Y,Z),U),V).
+187[0:Inp] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(X,U) KnowsPair(X,pair(Y,Z)) L1_B(sent(X,W,encr(pair(Y,Z),U)),V)* -> L1_Sender(X,W,encr(pair(Y,Z),U)).
+189[0:Inp] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(X,U) KnowsPair(X,pair(Y,Z)) L1_E(sent(X,W,encr(pair(Y,Z),U)),V)* -> L1_Sender(X,W,encr(pair(Y,Z),U)).
+186[0:Inp] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(X,U) KnowsPair(X,pair(Y,Z)) L1_E(sent(X,W,encr(pair(Y,Z),U)),V)* -> L1_Sender(V,W,encr(pair(Y,Z),U)).
+196[0:Inp] Key(U) Attacker(V) Agent(W) Honest(W) Honest(X) Agent(X) || Knows(X,U) KnowsPair(X,pair(Y,Z)) L1_E(sent(X,W,encr(pair(Y,Z),U)),V) -> L1_S(sent(X,W,encr(pair(Y,Z),U)),V)*.
+	Given clause: 10[0:Inp] ||  -> DY(dy)*.
+	Given clause: 9[0:Inp] ||  -> Attacker(dy)*.
+	Given clause: 8[0:Inp] ||  -> Honest(ub)*.
+	Given clause: 6[0:Inp] ||  -> Honest(ua)*.
+	Given clause: 4[0:Inp] ||  -> Honest(b)*.
+	Given clause: 2[0:Inp] ||  -> Honest(a)*.
+	Given clause: 7[0:Inp] ||  -> Agent(ub)*.
+	Given clause: 5[0:Inp] ||  -> Agent(ua)*.
+	Given clause: 3[0:Inp] ||  -> Agent(b)*.
+	Given clause: 1[0:Inp] ||  -> Agent(a)*.
+	Given clause: 17[0:Inp] ||  -> Knows(ub,vb)*.
+	Given clause: 16[0:Inp] ||  -> Knows(ua,va)*.
+	Given clause: 15[0:Inp] ||  -> Knows(b,vbgpkbpkananb)*.
+	Given clause: 14[0:Inp] ||  -> Knows(a,vagpkbpkananb)*.
+	Given clause: 13[0:Inp] ||  -> Knows(b,nb)*.
+	Given clause: 12[0:Inp] ||  -> Knows(a,na)*.
+	Given clause: 11[0:Inp] ||  -> Knows(b,cbf1pkbpkanb0)*.
+	Given clause: 20[0:Inp] || Knows(dy,nb)* -> .
+	Given clause: 19[0:Inp] || Knows(dy,na)* -> .
+	Given clause: 18[0:Inp] || Knows(dy,cbf1pkbpkanb0)* -> .
+	Given clause: 250[0:MRR:38.0,249.0] ||  -> L3_N(sent(a,ua,vagpkbpkananb))*.
+	Given clause: 252[0:MRR:40.0,251.0] ||  -> L3_N(sent(b,ub,vbgpkbpkananb))*.
+	Given clause: 253[0:MRR:41.0,252.0] ||  -> L4_N(sent(ua,ub,va))*.
+	Given clause: 254[0:MRR:42.0,253.0] ||  -> L4_N(sent(ub,ua,vb))*.
+	Given clause: 22[0:Inp] ||  -> L2_N(sent(b,a,cbf1pkbpkanb0))*.
+	Given clause: 231[0:MRR:202.0,202.1,202.2,202.3,202.4,202.5,202.6,209.0,208.0,207.0,206.0,205.0,204.0,203.0] ||  -> L2_N(sent(a,b,na))*.
+	Given clause: 240[0:MRR:239.0,239.1,239.2,239.3,239.4,239.5,238.0,237.0,236.0,235.0,234.0,233.0] ||  -> L2_N(sent(b,a,nb))*.
+	Given clause: 249[0:MRR:248.0,248.1,248.2,248.3,248.4,248.5,247.0,246.0,245.0,244.0,243.0,242.0] ||  -> L2_N(sent(a,ua,vagpkbpkananb))*.
+	Given clause: 251[0:MRR:39.0,250.0] ||  -> L2_N(sent(b,ub,vbgpkbpkananb))*.
+	Given clause: 21[0:Inp] Attacker(U) ||  -> Agent(U)*.
+	Given clause: 204[0:MRR:50.0,22.0] ||  -> L1_O(sent(b,a,cbf1pkbpkanb0),dy)*.
+	Given clause: 233[0:MRR:57.0,231.0] ||  -> L1_O(sent(a,b,na),dy)*.
+	Given clause: 242[0:MRR:64.0,240.0] ||  -> L1_O(sent(b,a,nb),dy)*.
+	Given clause: 206[0:MRR:48.0,22.0] ||  -> L1_I(sent(b,a,cbf1pkbpkanb0),dy)*.
+	Given clause: 207[0:MRR:47.0,22.0] ||  -> L1_S(sent(b,a,cbf1pkbpkanb0),dy)*.
+	Given clause: 235[0:MRR:55.0,231.0] ||  -> L1_I(sent(a,b,na),dy)*.
+	Given clause: 236[0:MRR:54.0,231.0] ||  -> L1_S(sent(a,b,na),dy)*.
+	Given clause: 244[0:MRR:62.0,240.0] ||  -> L1_I(sent(b,a,nb),dy)*.
+	Given clause: 245[0:MRR:61.0,240.0] ||  -> L1_S(sent(b,a,nb),dy)*.
+	Given clause: 203[0:MRR:51.0,22.0] ||  -> L1_F(sent(b,a,cbf1pkbpkanb0),dy)*.
+	Given clause: 232[0:MRR:58.0,231.0] ||  -> L1_F(sent(a,b,na),dy)*.
+	Given clause: 241[0:MRR:65.0,240.0] ||  -> L1_F(sent(b,a,nb),dy)*.
+	Given clause: 205[0:MRR:49.0,22.0] ||  -> L1_C(sent(b,a,cbf1pkbpkanb0),dy)*.
+	Given clause: 234[0:MRR:56.0,231.0] ||  -> L1_C(sent(a,b,na),dy)*.
+	Given clause: 243[0:MRR:63.0,240.0] ||  -> L1_C(sent(b,a,nb),dy)*.
+	Given clause: 208[0:MRR:46.0,22.0] ||  -> L1_B(sent(b,a,cbf1pkbpkanb0),dy)*.
+	Given clause: 237[0:MRR:53.0,231.0] ||  -> L1_B(sent(a,b,na),dy)*.
+	Given clause: 246[0:MRR:60.0,240.0] ||  -> L1_B(sent(b,a,nb),dy)*.
+	Given clause: 209[0:MRR:45.0,22.0] ||  -> L1_E(sent(b,a,cbf1pkbpkanb0),dy)*.
+	Given clause: 238[0:MRR:52.0,231.0] ||  -> L1_E(sent(a,b,na),dy)*.
+	Given clause: 247[0:MRR:59.0,240.0] ||  -> L1_E(sent(b,a,nb),dy)*.
+	Given clause: 255[0:Res:25.1,20.0] || SkP0(nb,U,dy,V,W)* -> .
+	Given clause: 256[0:Res:28.1,20.0] || SkP1(nb,U,dy,V,W)* -> .
+	Given clause: 257[0:Res:31.1,20.0] || SkP2(nb,U,dy,V,W)* -> .
+	Given clause: 31[0:Inp] || SkP2(U,V,W,X,Y)* -> Knows(W,U).
+	Given clause: 286[0:Res:25.1,19.0] || SkP0(na,U,dy,V,W)* -> .
+	Given clause: 287[0:Res:28.1,19.0] || SkP1(na,U,dy,V,W)* -> .
+	Given clause: 288[0:Res:31.1,19.0] || SkP2(na,U,dy,V,W)* -> .
+	Given clause: 317[0:Res:25.1,18.0] || SkP0(cbf1pkbpkanb0,U,dy,V,W)* -> .
+	Given clause: 30[0:Inp] || SkP2(U,V,W,X,Y)* -> Knows(Y,U).
+	Given clause: 318[0:Res:28.1,18.0] || SkP1(cbf1pkbpkanb0,U,dy,V,W)* -> .
+	Given clause: 319[0:Res:31.1,18.0] || SkP2(cbf1pkbpkanb0,U,dy,V,W)* -> .
+	Given clause: 258[0:Res:24.1,20.0] || SkP0(nb,U,V,W,dy)* -> .
+	Given clause: 259[0:Res:27.1,20.0] || SkP1(nb,U,V,W,dy)* -> .
+	Given clause: 29[0:Inp] || SkP2(U,V,W,X,Y)* -> Knows(Y,V).
+	Given clause: 260[0:Res:30.1,20.0] || SkP2(nb,U,V,W,dy)* -> .
+	Given clause: 289[0:Res:24.1,19.0] || SkP0(na,U,V,W,dy)* -> .
+	Given clause: 290[0:Res:27.1,19.0] || SkP1(na,U,V,W,dy)* -> .
+	Given clause: 291[0:Res:30.1,19.0] || SkP2(na,U,V,W,dy)* -> .
+	Given clause: 28[0:Inp] || SkP1(U,V,W,X,Y)* -> Knows(W,U).
+	Given clause: 320[0:Res:24.1,18.0] || SkP0(cbf1pkbpkanb0,U,V,W,dy)* -> .
+	Given clause: 321[0:Res:27.1,18.0] || SkP1(cbf1pkbpkanb0,U,V,W,dy)* -> .
+	Given clause: 322[0:Res:30.1,18.0] || SkP2(cbf1pkbpkanb0,U,V,W,dy)* -> .
+	Given clause: 264[0:Res:212.1,20.0] || SkP0(U,nb,dy,V,W)* -> .
+	Given clause: 27[0:Inp] || SkP1(U,V,W,X,Y)* -> Knows(Y,U).
+	Given clause: 265[0:Res:211.1,20.0] || SkP1(U,nb,dy,V,W)* -> .
+	Given clause: 266[0:Res:210.1,20.0] || SkP2(U,nb,dy,V,W)* -> .
+	Given clause: 295[0:Res:212.1,19.0] || SkP0(U,na,dy,V,W)* -> .
+	Given clause: 296[0:Res:211.1,19.0] || SkP1(U,na,dy,V,W)* -> .
+	Given clause: 26[0:Inp] || SkP1(U,V,W,X,Y)* -> Knows(Y,V).
+	Given clause: 297[0:Res:210.1,19.0] || SkP2(U,na,dy,V,W)* -> .
+	Given clause: 326[0:Res:212.1,18.0] || SkP0(U,cbf1pkbpkanb0,dy,V,W)* -> .
+	Given clause: 327[0:Res:211.1,18.0] || SkP1(U,cbf1pkbpkanb0,dy,V,W)* -> .
+	Given clause: 328[0:Res:210.1,18.0] || SkP2(U,cbf1pkbpkanb0,dy,V,W)* -> .
+	Given clause: 25[0:Inp] || SkP0(U,V,W,X,Y)* -> Knows(W,U).
+	Given clause: 261[0:Res:23.1,20.0] || SkP0(U,nb,V,W,dy)* -> .
+	Given clause: 262[0:Res:26.1,20.0] || SkP1(U,nb,V,W,dy)* -> .
+	Given clause: 263[0:Res:29.1,20.0] || SkP2(U,nb,V,W,dy)* -> .
+	Given clause: 292[0:Res:23.1,19.0] || SkP0(U,na,V,W,dy)* -> .
+	Given clause: 24[0:Inp] || SkP0(U,V,W,X,Y)* -> Knows(Y,U).
+	Given clause: 293[0:Res:26.1,19.0] || SkP1(U,na,V,W,dy)* -> .
+	Given clause: 294[0:Res:29.1,19.0] || SkP2(U,na,V,W,dy)* -> .
+	Given clause: 323[0:Res:23.1,18.0] || SkP0(U,cbf1pkbpkanb0,V,W,dy)* -> .
+	Given clause: 324[0:Res:26.1,18.0] || SkP1(U,cbf1pkbpkanb0,V,W,dy)* -> .
+	Given clause: 23[0:Inp] || SkP0(U,V,W,X,Y)* -> Knows(Y,V).
+	Given clause: 325[0:Res:29.1,18.0] || SkP2(U,cbf1pkbpkanb0,V,W,dy)* -> .
+	Given clause: 269[0:Res:43.2,20.0] Agent(dy) || KnowsPair(dy,pair(nb,U))* -> .
+	Given clause: 405[0:SSi:404.0,10.0,9.0] || KnowsPair(dy,pair(nb,U))* -> .
+	Given clause: 300[0:Res:43.2,19.0] Agent(dy) || KnowsPair(dy,pair(na,U))* -> .
+	Given clause: 210[0:MRR:68.0,31.1] || SkP2(U,V,W,X,Y)* -> Knows(W,V).
+	Given clause: 407[0:SSi:406.0,10.0,9.0] || KnowsPair(dy,pair(na,U))* -> .
+	Given clause: 331[0:Res:43.2,18.0] Agent(dy) || KnowsPair(dy,pair(cbf1pkbpkanb0,U))* -> .
+	Given clause: 409[0:SSi:408.0,10.0,9.0] || KnowsPair(dy,pair(cbf1pkbpkanb0,U))* -> .
+	Given clause: 268[0:Res:44.2,20.0] Agent(dy) || KnowsPair(dy,pair(U,nb))* -> .
+	Given clause: 211[0:MRR:67.0,28.1] || SkP1(U,V,W,X,Y)* -> Knows(W,V).
+	Given clause: 411[0:SSi:410.0,10.0,9.0] || KnowsPair(dy,pair(U,nb))* -> .
+	Given clause: 299[0:Res:44.2,19.0] Agent(dy) || KnowsPair(dy,pair(U,na))* -> .
+	Given clause: 413[0:SSi:412.0,10.0,9.0] || KnowsPair(dy,pair(U,na))* -> .
+	Given clause: 330[0:Res:44.2,18.0] Agent(dy) || KnowsPair(dy,pair(U,cbf1pkbpkanb0))* -> .
+	Given clause: 212[0:MRR:66.0,25.1] || SkP0(U,V,W,X,Y)* -> Knows(W,V).
+	Given clause: 415[0:SSi:414.0,10.0,9.0] || KnowsPair(dy,pair(U,cbf1pkbpkanb0))* -> .
+	Given clause: 35[0:Inp] || SkP1(U,V,W,X,Y)* -> L2_Sender(X,W,U).
+	Given clause: 34[0:Inp] || SkP1(U,V,W,X,Y)* -> L2_Sender(X,W,V).
+	Given clause: 33[0:Inp] || SkP0(U,V,W,X,Y)* -> L3_Sender(X,W,U).
+	Given clause: 32[0:Inp] || SkP0(U,V,W,X,Y)* -> L3_Sender(X,W,V).
+	Given clause: 37[0:Inp] || SkP2(U,V,W,X,Y)* -> L1_Sender(X,W,U).
+	Given clause: 36[0:Inp] || SkP2(U,V,W,X,Y)* -> L1_Sender(X,W,V).
+	Given clause: 44[0:Inp] Agent(U) || KnowsPair(U,pair(V,W))* -> Knows(U,W).
+	Given clause: 43[0:Inp] Agent(U) || KnowsPair(U,pair(V,W))* -> Knows(U,V).
+	Given clause: 75[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W)*+ -> Knows(U,W)*.
+	Given clause: 270[0:Res:75.4,20.0] Attacker(U) Honest(dy) Agent(dy) || Knows(U,nb)* -> .
+	Given clause: 301[0:Res:75.4,19.0] Attacker(U) Honest(dy) Agent(dy) || Knows(U,na)* -> .
+	Given clause: 332[0:Res:75.4,18.0] Attacker(U) Honest(dy) Agent(dy) || Knows(U,cbf1pkbpkanb0)* -> .
+	Given clause: 267[0:Res:83.4,20.0] Key(U) Agent(dy) || Knows(dy,U) KnowsEncr(dy,encr(nb,U))* -> .
+	Given clause: 69[0:Inp] Agent(U) || Knows(U,V) Knows(U,W) -> KnowsPair(U,pair(V,W))*.
+	Given clause: 298[0:Res:83.4,19.0] Key(U) Agent(dy) || Knows(dy,U) KnowsEncr(dy,encr(na,U))* -> .
+	Given clause: 329[0:Res:83.4,18.0] Key(U) Agent(dy) || Knows(dy,U) KnowsEncr(dy,encr(cbf1pkbpkanb0,U))* -> .
+	Given clause: 80[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L2_Sender(V,U,W)*.
+	Given clause: 79[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L3_Sender(V,U,W)*.
+	Given clause: 81[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L1_Sender(V,U,W)*.
+	Given clause: 85[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L2_I(sent(V,U,W),V)*.
+	Given clause: 84[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L3_I(sent(V,U,W),V)*.
+	Given clause: 86[0:Inp] Honest(U) Agent(U) Attacker(V) || Knows(V,W) -> L1_I(sent(V,U,W),V)*.
+	Given clause: 82[0:Inp] Key(U) Agent(V) || Knows(V,U) Knows(V,W) -> KnowsEncr(V,encr(W,U))*.
+	Given clause: 83[0:Inp] Key(U) Agent(V) || Knows(V,U) KnowsEncr(V,encr(W,U))* -> Knows(V,W).
+	Given clause: 87[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X))*+ -> KnowsPair(U,pair(W,X))*.
+	Given clause: 94[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L2_Sender(V,U,pair(W,X))*.
+	Given clause: 95[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L3_Sender(V,U,pair(W,X))*.
+	Given clause: 93[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L1_Sender(V,U,pair(W,X))*.
+	Given clause: 100[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L2_I(sent(V,U,pair(W,X)),V)*.
+	Given clause: 445[0:SSi:444.0,21.1] Agent(U) Honest(U) Attacker(V) || Knows(V,W)*+ Knows(V,X)* -> KnowsPair(U,pair(W,X))*.
+	Given clause: 348[0:MRR:341.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(cbf1pkbpkanb0)) L1_F(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+	Given clause: 454[0:SSi:453.3,453.2,453.1,453.0,4.0,3.0,4.0,3.0,2.0,1.0,2.0,1.0] || Function(hash(cbf1pkbpkanb0))* -> .
+	Given clause: 355[0:MRR:310.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(na)) L1_F(sent(V,U,na),dy)* -> .
+	Given clause: 101[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L3_I(sent(V,U,pair(W,X)),V)*.
+	Given clause: 456[0:SSi:455.3,455.2,455.1,455.0,2.0,1.0,2.0,1.0,4.0,3.0,4.0,3.0] || Function(hash(na))* -> .
+	Given clause: 362[0:MRR:279.4,9.0] Agent(U) Honest(U) Honest(V) Agent(V) || Function(hash(nb)) L1_F(sent(V,U,nb),dy)* -> .
+	Given clause: 458[0:SSi:457.3,457.2,457.1,457.0,4.0,3.0,4.0,3.0,2.0,1.0,2.0,1.0] || Function(hash(nb))* -> .
+	Given clause: 350[0:MRR:339.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L2_B(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+	Given clause: 99[0:Inp] Agent(U) Honest(U) Attacker(V) || KnowsPair(V,pair(W,X)) -> L1_I(sent(V,U,pair(W,X)),V)*.
+	Given clause: 351[0:MRR:338.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L3_B(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+	Given clause: 357[0:MRR:308.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L2_B(sent(V,U,na),dy)* -> .
+	Given clause: 358[0:MRR:307.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L3_B(sent(V,U,na),dy)* -> .
+	Given clause: 364[0:MRR:277.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L2_B(sent(V,U,nb),dy)* -> .
+	Given clause: 103[0:Inp] Key(U) Agent(V) || Knows(V,U) KnowsPair(V,pair(W,X)) -> KnowsEncr(V,encr(pair(W,X),U))*.
+	Given clause: 365[0:MRR:276.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L3_B(sent(V,U,nb),dy)* -> .
+	Given clause: 353[0:MRR:336.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L2_E(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+	Given clause: 354[0:MRR:335.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L3_E(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+	Given clause: 360[0:MRR:305.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L2_E(sent(V,U,na),dy)* -> .
+	Given clause: 102[0:Inp] Key(U) Agent(V) || Knows(V,U) KnowsEncr(V,encr(pair(W,X),U))* -> KnowsPair(V,pair(W,X)).
+	Given clause: 361[0:MRR:304.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,na) L3_E(sent(V,U,na),dy)* -> .
+	Given clause: 367[0:MRR:274.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L2_E(sent(V,U,nb),dy)* -> .
+	Given clause: 368[0:MRR:273.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,nb) L3_E(sent(V,U,nb),dy)* -> .
+	Given clause: 349[0:MRR:340.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L1_B(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+SPASS V 3.5 
+SPASS beiseite: Proof found.
+Problem: bluetooth.dfg 
+SPASS derived 154 clauses, backtracked 0 clauses, performed 0 splits and kept 309 clauses.
+SPASS allocated 52975 KBytes.
+SPASS spent	0:00:00.06 on the problem.
+		0:00:00.01 for the input.
+		0:00:00.02 for the FLOTTER CNF translation.
+		0:00:00.00 for inferences.
+		0:00:00.00 for the backtracking.
+		0:00:00.01 for the reduction.
+
+
+Here is a proof with depth 2, length 16 :
+1[0:Inp] ||  -> Agent(a)*.
+2[0:Inp] ||  -> Honest(a)*.
+3[0:Inp] ||  -> Agent(b)*.
+4[0:Inp] ||  -> Honest(b)*.
+9[0:Inp] ||  -> Attacker(dy)*.
+11[0:Inp] ||  -> Knows(b,cbf1pkbpkanb0)*.
+18[0:Inp] || Knows(dy,cbf1pkbpkanb0)* -> .
+22[0:Inp] ||  -> L2_N(sent(b,a,cbf1pkbpkanb0))*.
+46[0:Inp] || L2_N(sent(b,a,cbf1pkbpkanb0)) -> L1_B(sent(b,a,cbf1pkbpkanb0),dy)*.
+115[0:Inp] Attacker(U) Honest(V) Agent(V) Agent(W) Honest(W) || Knows(W,X) L1_B(sent(W,V,X),U)* -> Knows(U,X).
+208[0:MRR:46.0,22.0] ||  -> L1_B(sent(b,a,cbf1pkbpkanb0),dy)*.
+340[0:Res:115.7,18.0] Honest(U) Agent(U) Agent(V) Honest(V) Attacker(dy) || L1_B(sent(U,V,cbf1pkbpkanb0),dy)* Knows(U,cbf1pkbpkanb0) -> .
+349[0:MRR:340.4,9.0] Honest(U) Agent(U) Agent(V) Honest(V) || Knows(V,cbf1pkbpkanb0) L1_B(sent(V,U,cbf1pkbpkanb0),dy)* -> .
+464[0:Res:208.0,349.5] Honest(a) Agent(a) Agent(b) Honest(b) || Knows(b,cbf1pkbpkanb0)* -> .
+465[0:SSi:464.3,464.2,464.1,464.0,4.0,3.0,4.0,3.0,2.0,1.0,2.0,1.0] || Knows(b,cbf1pkbpkanb0)* -> .
+466[0:MRR:465.0,11.0] ||  -> .
+Formulae used in the proof : agent_a honest_a agent_b honest_b attacker_dy agent_b_knows_cbf1pkbpkanb0 attacker_dy_knows_cbf1pkbpkanb0 step1 step2 Block_L1
+
+--------------------------SPASS-STOP------------------------------
