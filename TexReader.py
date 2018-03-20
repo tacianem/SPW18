@@ -11,7 +11,7 @@ def read_tex(file_name):
         with open(file_name, "r") as tex:
             tex_lines = tex.readlines()
 
-        print "\nFile: ", file_name
+        print("\nFile: ", file_name)
         parse = parse_tex(tex_lines)
         return build_ceremony(parse[0], parse[1])
 
@@ -22,16 +22,16 @@ parse_tex: Scans through the lines of the .tex file, searching for cryptographic
 """
 
 def replace(string, lst, char):
-    for item in lst: 
+    for item in lst:
         string = string.replace(item, char)
 
     return string
- 
+
 def parse_tex(tex_lines):
     ceremony_steps = []
     keys = []
 
-    print "\nREGULAR EXPRESSION result:"
+    print("\nREGULAR EXPRESSION result:")
 
     for line in tex_lines:
         if not line or line == "\n":
@@ -59,7 +59,7 @@ def parse_tex(tex_lines):
 
         result = re.findall(r'[A-Za-z\d\+\s\,]*[^\s\$\.\&\{\}\(\)\:\[\]\*]+', line)
         result.append(msg)
-        print "RESULT {}".format(result)
+        print("RESULT {}".format(result))
 
         ceremony_steps.append(result)
 
@@ -74,9 +74,11 @@ build_ceremony: Returns a ceremony object with all its components already set, b
 def build_ceremony(keys, ceremony_steps):
     ceremony = Ceremony()
     ceremony.keys = keys
-
+    
     for step in ceremony_steps:
         length = len(step)
+        if step[0] == "":
+            continue
 
         sender = step[0].lower()
         layer = step[1]

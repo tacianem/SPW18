@@ -48,15 +48,15 @@ class Ceremony(object):
     """
 
     def print_status(self):
-        print "\n\nPEERS SET --------------------------------\n", self.peers
-        print "\n\nMSGS SET ---------------------------------\n", self.msgs
-        print "\n\nATTS SET ---------------------------------\n", self.atts
+        print("\n\nPEERS SET --------------------------------\n", self.peers)
+        print( "\n\nMSGS SET ---------------------------------\n", self.msgs)
+        print("\n\nATTS SET ---------------------------------\n", self.atts)
 
-        print "\n\nKEYS -------------------------------------\n", self.keys
-        print "\n\nSENDER -----------------------------------\n", self.sender
-        print "\n\nLAYER ------------------------------------\n", self.layer
-        print "\n\nCAPAB ------------------------------------\n", self.capab
-        print "\n\nATT --------------------------------------\n", self.att
-        print "\n\nRECEIVER ---------------------------------\n", self.receiver
-        print "\n\nMSG --------------------------------------\n", self.msg
-        print "\n\n"
+        print("\n\nKEYS -------------------------------------\n", self.keys)
+        print("\n\nSENDER -----------------------------------\n", self.sender)
+        print("\n\nLAYER ------------------------------------\n", self.layer)
+        print("\n\nCAPAB ------------------------------------\n", self.capab)
+        print("\n\nATT --------------------------------------\n", self.att)
+        print("\n\nRECEIVER ---------------------------------\n", self.receiver)
+        print("\n\nMSG --------------------------------------\n", self.msg)
+        print("\n\n")

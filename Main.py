@@ -8,7 +8,7 @@ Each file passed as input has its own ceremony object sent to the writer which p
 """
 
 if len(sys.argv) == 1:
-    print "You have to pass the files to be parsed as parameters! Mind the extensions of the files ;)"
+    print("You have to pass the files to be parsed as parameters! Mind the extensions of the files ;)")
 
 files = sys.argv[1:]
 #files = ["ceremony1.tex", "ceremony2.tex", "ceremony3.tex", "ceremony4.tex", "ceremony5.tex"]
@@ -25,5 +25,6 @@ for file_name in files:
 
         # runs SPASS on terminal
         os.system('SPASS -DocProof {0}.dfg > {0}.txt'.format(spass_name))
+        
     else:
-        print "Hey!!! File " + file_name + " has no extension!"
+        print("Hey!!! File " + file_name + " has no extension!")
